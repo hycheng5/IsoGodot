@@ -1,3 +1,3 @@
-[gd_scene format=3 uid="uid://c5ei6ttqnkjxk"]
+[gd_scene format=3 uid="uid://cwxtc3qb5uv0p"]
 
 [node name="ClickController" type="CharacterBody2D"]
