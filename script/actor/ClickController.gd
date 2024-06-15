@@ -15,9 +15,11 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("move"):
 		clickPosition = get_global_mouse_position()
-	if position.distance_to(clickPosition) > 50:
+	if position.distance_to(clickPosition) > 40:
 		targetPosition = (clickPosition - position).normalized()
 		velocity = targetPosition * SPEED
 		move_and_slide()
+	else:
+		velocity = Vector2.ZERO
 	pass
 	
