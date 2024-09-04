@@ -1,0 +1,169 @@
+[gd_scene load_steps=28 format=3 uid="uid://d31681wcon1o8"]
+
+[ext_resource type="Script" path="res://battles/scripts/battle_manager.gd" id="1_hxuqq"]
+[ext_resource type="Script" path="res://abilities/scripts/sequences/ability_sequence.gd" id="2_010p2"]
+[ext_resource type="Script" path="res://battles/scripts/graphics/battle_gui_controller.gd" id="2_eipcj"]
+[ext_resource type="Script" path="res://abilities/scripts/sequences/ability_basic_attack.gd" id="3_fboy8"]
+[ext_resource type="PackedScene" uid="uid://d0nvx3lbi2664" path="res://battles/button_ability.tscn" id="3_vp4dy"]
+[ext_resource type="Script" path="res://abilities/scripts/attacks/data_attack.gd" id="4_yygby"]
+[ext_resource type="Script" path="res://abilities/scripts/attacks/data_low_attack.gd" id="5_vbfkd"]
+[ext_resource type="Script" path="res://abilities/scripts/attacks/data_medium_attack.gd" id="6_0wuu2"]
+[ext_resource type="Script" path="res://abilities/scripts/attacks/data_high_attack.gd" id="7_xlvq5"]
+[ext_resource type="Script" path="res://abilities/scripts/effects/data_effect.gd" id="8_ja88w"]
+[ext_resource type="Script" path="res://monster/scripts/data_monster.gd" id="9_rsg8g"]
+[ext_resource type="SpriteFrames" uid="uid://pvtnh5do0qgj" path="res://monster/monsters/test_monster/animation_test_monster.tres" id="10_bhpsv"]
+[ext_resource type="Script" path="res://abilities/scripts/statuses/data_status.gd" id="10_krg26"]
+[ext_resource type="Script" path="res://battles/scripts/graphics/battle_player_sprite.gd" id="14_pqgrw"]
+[ext_resource type="Script" path="res://battles/scripts/graphics/battle_opponent_sprite.gd" id="15_n0viw"]
+[ext_resource type="Script" path="res://battles/scripts/phases/standbye_manager.gd" id="16_t31p0"]
+[ext_resource type="Script" path="res://battles/scripts/phases/attack_choose_manager.gd" id="17_lwaqj"]
+
+[sub_resource type="Resource" id="Resource_ddbty"]
+script = ExtResource("3_fboy8")
+
+[sub_resource type="Resource" id="Resource_lhxvt"]
+script = ExtResource("5_vbfkd")
+weight = 4
+
+[sub_resource type="Resource" id="Resource_rf3sv"]
+script = ExtResource("6_0wuu2")
+weight = 2
+
+[sub_resource type="Resource" id="Resource_ass5t"]
+script = ExtResource("7_xlvq5")
+weight = 1
+
+[sub_resource type="Resource" id="Resource_tnasn"]
+script = ExtResource("8_ja88w")
+weight = 0
+
+[sub_resource type="Resource" id="Resource_7n2e6"]
+script = ExtResource("10_krg26")
+name = ""
+weight = 0
+
+[sub_resource type="Resource" id="Resource_15jv1"]
+resource_local_to_scene = true
+script = ExtResource("9_rsg8g")
+name = "Test Monster"
+health = 30
+attack = 30
+speed = 30
+attack_set = Array[ExtResource("4_yygby")]([SubResource("Resource_lhxvt"), SubResource("Resource_rf3sv"), SubResource("Resource_ass5t")])
+status_set = Array[ExtResource("10_krg26")]([SubResource("Resource_7n2e6")])
+effect_set = Array[ExtResource("8_ja88w")]([SubResource("Resource_tnasn")])
+monster_frames = ExtResource("10_bhpsv")
+ability_sequence_set = Array[ExtResource("2_010p2")]([SubResource("Resource_ddbty")])
+max_abilities = 4
+
+[sub_resource type="Resource" id="Resource_cjika"]
+resource_local_to_scene = true
+script = ExtResource("9_rsg8g")
+name = "Test Monster"
+health = 30
+attack = 30
+speed = 30
+attack_set = Array[ExtResource("4_yygby")]([SubResource("Resource_lhxvt"), SubResource("Resource_rf3sv"), SubResource("Resource_ass5t")])
+status_set = Array[ExtResource("10_krg26")]([SubResource("Resource_7n2e6")])
+effect_set = Array[ExtResource("8_ja88w")]([SubResource("Resource_tnasn")])
+monster_frames = ExtResource("10_bhpsv")
+ability_sequence_set = Array[ExtResource("2_010p2")]([SubResource("Resource_ddbty")])
+max_abilities = 4
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_61lc6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wc0xp"]
+
+[node name="BattleRoot" type="Node2D"]
+script = ExtResource("1_hxuqq")
+player_monster = SubResource("Resource_15jv1")
+opponent_monster = SubResource("Resource_cjika")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="UI" type="Control" parent="."]
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_eipcj")
+
+[node name="Menu" type="HBoxContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -432.0
+offset_top = 152.0
+offset_right = -196.0
+offset_bottom = 272.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AttackButtonContainer" type="GridContainer" parent="UI/Menu"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="Button1" parent="UI/Menu/AttackButtonContainer" instance=ExtResource("3_vp4dy")]
+layout_mode = 2
+
+[node name="Button2" parent="UI/Menu/AttackButtonContainer" instance=ExtResource("3_vp4dy")]
+layout_mode = 2
+
+[node name="Button3" parent="UI/Menu/AttackButtonContainer" instance=ExtResource("3_vp4dy")]
+layout_mode = 2
+
+[node name="Button4" parent="UI/Menu/AttackButtonContainer" instance=ExtResource("3_vp4dy")]
+layout_mode = 2
+
+[node name="PhaseContainer" type="CenterContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -71.0
+offset_top = -274.0
+offset_right = 68.0
+offset_bottom = -205.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PhaseLabel" type="Label" parent="UI/PhaseContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Phase"
+
+[node name="PlayerMonsterContainer" type="Node2D" parent="."]
+
+[node name="PlayerMonsterSprite" type="AnimatedSprite2D" parent="PlayerMonsterContainer"]
+position = Vector2(-252, 98)
+scale = Vector2(0.478, 0.351)
+sprite_frames = SubResource("SpriteFrames_61lc6")
+script = ExtResource("14_pqgrw")
+
+[node name="OpponentMonsterContainer" type="Node2D" parent="."]
+
+[node name="OpponentMonsterSprite" type="AnimatedSprite2D" parent="OpponentMonsterContainer"]
+position = Vector2(275, -134)
+scale = Vector2(0.478, 0.351)
+sprite_frames = SubResource("SpriteFrames_wc0xp")
+script = ExtResource("15_n0viw")
+
+[node name="StandbyeManager" type="Node" parent="." node_paths=PackedStringArray("timer")]
+script = ExtResource("16_t31p0")
+timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="StandbyeManager"]
+one_shot = true
+
+[node name="AttackChooseManager" type="Node" parent="."]
+script = ExtResource("17_lwaqj")
+
+[connection signal="timeout" from="StandbyeManager/Timer" to="StandbyeManager" method="_on_timer_timeout"]

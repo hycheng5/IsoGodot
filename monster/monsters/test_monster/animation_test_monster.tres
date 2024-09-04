@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://pvtnh5do0qgj"]
+
+[ext_resource type="Texture2D" uid="uid://d2gouw8scmyfm" path="res://monster/monsters/test_monster/pxArt (3).png" id="1_xij2i"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xij2i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

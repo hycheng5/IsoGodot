@@ -1,0 +1,85 @@
+[gd_scene load_steps=6 format=3 uid="uid://d31681wcon1o8"]
+
+[ext_resource type="Script" path="res://battles/scripts/battle_manager.gd" id="1_hxuqq"]
+[ext_resource type="Script" path="res://gui/scripts/battle_gui_controller.gd" id="2_eipcj"]
+[ext_resource type="Resource" uid="uid://dns8a4dbtuoc2" path="res://monster/monsters/test_monster/data_test_monster.tres" id="3_8cuq2"]
+[ext_resource type="PackedScene" uid="uid://d0nvx3lbi2664" path="res://gui/button_attack.tscn" id="3_vp4dy"]
+[ext_resource type="SpriteFrames" uid="uid://pvtnh5do0qgj" path="res://monster/monsters/test_monster/animation_test_monster.tres" id="10_bhpsv"]
+
+[node name="BattleRoot" type="Node2D"]
+script = ExtResource("1_hxuqq")
+player_monster = ExtResource("3_8cuq2")
+opponent_monster = ExtResource("3_8cuq2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="UI" type="Control" parent="."]
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_eipcj")
+
+[node name="Menu" type="HBoxContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -432.0
+offset_top = 152.0
+offset_right = -196.0
+offset_bottom = 272.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AttackButtonContainer" type="GridContainer" parent="UI/Menu"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="Button1" parent="UI/Menu/AttackButtonContainer" instance=ExtResource("3_vp4dy")]
+layout_mode = 2
+
+[node name="Button2" parent="UI/Menu/AttackButtonContainer" instance=ExtResource("3_vp4dy")]
+layout_mode = 2
+
+[node name="Button3" parent="UI/Menu/AttackButtonContainer" instance=ExtResource("3_vp4dy")]
+layout_mode = 2
+
+[node name="Button4" parent="UI/Menu/AttackButtonContainer" instance=ExtResource("3_vp4dy")]
+layout_mode = 2
+
+[node name="PhaseContainer" type="CenterContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -71.0
+offset_top = -274.0
+offset_right = 68.0
+offset_bottom = -205.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PhaseLabel" type="Label" parent="UI/PhaseContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Phase"
+
+[node name="MonsterContainer" type="Node2D" parent="."]
+
+[node name="MonsterAnimatedSpriteRight" type="AnimatedSprite2D" parent="MonsterContainer"]
+position = Vector2(261, -103)
+scale = Vector2(0.478448, 0.35)
+sprite_frames = ExtResource("10_bhpsv")
+
+[node name="MonsterAnimatedSpriteLeft" type="AnimatedSprite2D" parent="MonsterContainer"]
+position = Vector2(-252, 98)
+scale = Vector2(0.478, 0.351)
+sprite_frames = ExtResource("10_bhpsv")

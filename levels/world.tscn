@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=4 uid="uid://bqv0cd2fej7r2"]
+
+[ext_resource type="Texture2D" uid="uid://ui0iaoxikpj0" path="res://art/BaseBlock.png" id="1_70tns"]
+[ext_resource type="PackedScene" uid="uid://wh41kh16bn63" path="res://character/player/base_character.tscn" id="2_14nll"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8a2t4"]
+texture = ExtResource("1_70tns")
+texture_region_size = Vector2i(512, 256)
+0:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_3e3gb"]
+tile_shape = 1
+tile_size = Vector2i(512, 256)
+sources/0 = SubResource("TileSetAtlasSource_8a2t4")
+
+[node name="World" type="Node"]
+
+[node name="Layer0" type="TileMapLayer" parent="."]
+y_sort_enabled = true
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD///7/AAAAAAEAAAD///3/AAAAAAEAAAAAAPz/AAAAAAEAAAAAAPv/AAAAAAEAAAABAPz/AAAAAAEAAAABAP3/AAAAAAEAAAABAP7/AAAAAAEAAAAAAP3/AAAAAAEAAAAAAP7/AAAAAAEAAAD/////AAAAAAEAAAAAAP//AAAAAAEAAAABAAAAAAAAAAEAAAABAP//AAAAAAEAAAAAAAEAAAAAAAEAAAAAAAIAAAAAAAEAAAD//wEAAAAAAAEAAAD//wAAAAAAAAEAAAAAAAAAAAAAAAEAAAD+////AAAAAAEAAAACAP7/AAAAAAEAAAA=")
+tile_set = SubResource("TileSet_3e3gb")
+
+[node name="Player" parent="." instance=ExtResource("2_14nll")]
+position = Vector2(3, 15)
+SPEED = 500

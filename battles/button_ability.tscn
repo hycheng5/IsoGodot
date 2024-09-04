@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0nvx3lbi2664"]
+
+[ext_resource type="Script" path="res://battles/scripts/graphics/button_ability.gd" id="1_b3bsg"]
+
+[node name="Button1" type="Button"]
+theme_override_font_sizes/font_size = 30
+text = "Button"
+script = ExtResource("1_b3bsg")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
