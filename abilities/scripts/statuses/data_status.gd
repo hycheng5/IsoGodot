@@ -8,6 +8,9 @@ class_name Status
 # has a specific status
 func _check_status():
 	pass
+
+func _get_status_description() -> String:
+	return ""
 # this will be called on status checks 
-func _apply_status():
+func _apply_status(self_monster: Monster, opponent_monster: Monster):
 	pass

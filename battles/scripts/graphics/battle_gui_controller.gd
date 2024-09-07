@@ -16,14 +16,6 @@ func _ready():
 	for child in get_node("Menu/AttackButtonContainer").get_children():
 		if child is ButtonAbility:
 			button_list.append(child)
-	
-	for button in button_list:
-		button.pressed.connect(button_pressed.bind(button))
-	pass # Replace with function body.
-
-func button_pressed(button: ButtonAbility):
-	print(button.name, " was pressed")
-	battle_manager.select_ability_sequence(button.ability_sequence)
 
 func on_phase_change(phase: BattleManager.Phases):
 	# TODO: not sure if this will be in game for now just keeps this for debugging
@@ -44,6 +36,7 @@ func on_new_player_monster(new_monster: Monster):
 	for i in range(0,new_monster.usable_ability_sequences.size()):
 		button_list[i].text = new_monster.usable_ability_sequences[i].ability_description
 		button_list[i].ability_sequence = new_monster.usable_ability_sequences[i]
+		button_list[i].battle_manager = battle_manager
 
 func on_new_opponent_monster(new_monster: Monster):
 	pass

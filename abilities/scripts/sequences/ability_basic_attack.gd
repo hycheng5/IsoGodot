@@ -10,3 +10,5 @@ func _generate_sequence(attacks: Array[Attack], statuses: Array[Status], effects
 
 func _execute_sequence(self_monster: Monster, opponent_monster: Monster):
 	attack._apply_damage(self_monster, opponent_monster)
+	print(opponent_monster.name,": health is now")
+	print(opponent_monster.health)

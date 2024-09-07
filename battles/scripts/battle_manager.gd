@@ -7,32 +7,35 @@ signal new_player_monster(new_monster: Monster)
 signal new_opponent_monster(new_monster: Monster)
 signal choose_ability_sequence(ability: AbilitySequence)
 
-@export var player_monster_inventory: CharacterMonsterInventory
-@export var opponent_monster_inventory: CharacterMonsterInventory
+enum Phases{STANDBYE, ATTACK_CHOOSE, EXECUTE, END}
 
-@export var player_monster: Monster
-@export var opponent_monster: Monster
-
-enum Phases{STANDBYE, ATTACK_CHOOSE, ATTACK_ANIMATION, STATUS, END}
-
-var phase_index = 0
 const phase_order: Array[Phases] = [
 		Phases.STANDBYE,
 		Phases.ATTACK_CHOOSE, 
-		Phases.ATTACK_ANIMATION, 
-		Phases.STATUS, 
+		Phases.EXECUTE, 
 		Phases.END
 		]
 
 const phase_names = {
 	Phases.STANDBYE: "Standby",
 	Phases.ATTACK_CHOOSE: "Attack Choose",
-	Phases.ATTACK_ANIMATION: "Attack Animation",
-	Phases.STATUS: "Status",
+	Phases.EXECUTE: "Execute",
 	Phases.END: "End"
 }
+
 var current_phase: Phases
 
+@export var player_monster_inventory: CharacterMonsterInventory
+@export var opponent_monster_inventory: CharacterMonsterInventory
+
+@export var player_monster: Monster
+@export var opponent_monster: Monster
+
+# chosen ability sequence 
+var player_sequence: AbilitySequence
+var opponent_sequence: AbilitySequence
+
+var phase_index = 0
 func _init():
 	pass
 # Called when the node enters the scene tree for the first time.

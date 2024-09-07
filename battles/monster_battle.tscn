@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://d31681wcon1o8"]
+[gd_scene load_steps=29 format=3 uid="uid://d31681wcon1o8"]
 
 [ext_resource type="Script" path="res://battles/scripts/battle_manager.gd" id="1_hxuqq"]
 [ext_resource type="Script" path="res://abilities/scripts/sequences/ability_sequence.gd" id="2_010p2"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://battles/scripts/graphics/battle_opponent_sprite.gd" id="15_n0viw"]
 [ext_resource type="Script" path="res://battles/scripts/phases/standbye_manager.gd" id="16_t31p0"]
 [ext_resource type="Script" path="res://battles/scripts/phases/attack_choose_manager.gd" id="17_lwaqj"]
+[ext_resource type="Script" path="res://battles/scripts/phases/execute_manager.gd" id="18_loqvp"]
 
 [sub_resource type="Resource" id="Resource_ddbty"]
 script = ExtResource("3_fboy8")
@@ -47,28 +48,30 @@ resource_local_to_scene = true
 script = ExtResource("9_rsg8g")
 name = "Test Monster"
 health = 30
+max_health = 0
 attack = 30
 speed = 30
 attack_set = Array[ExtResource("4_yygby")]([SubResource("Resource_lhxvt"), SubResource("Resource_rf3sv"), SubResource("Resource_ass5t")])
 status_set = Array[ExtResource("10_krg26")]([SubResource("Resource_7n2e6")])
 effect_set = Array[ExtResource("8_ja88w")]([SubResource("Resource_tnasn")])
 monster_frames = ExtResource("10_bhpsv")
-ability_sequence_set = Array[ExtResource("2_010p2")]([SubResource("Resource_ddbty")])
 max_abilities = 4
+ability_sequence_set = Array[ExtResource("2_010p2")]([SubResource("Resource_ddbty")])
 
 [sub_resource type="Resource" id="Resource_cjika"]
 resource_local_to_scene = true
 script = ExtResource("9_rsg8g")
-name = "Test Monster"
+name = "Opponent Monster"
 health = 30
+max_health = 0
 attack = 30
-speed = 30
+speed = 4
 attack_set = Array[ExtResource("4_yygby")]([SubResource("Resource_lhxvt"), SubResource("Resource_rf3sv"), SubResource("Resource_ass5t")])
 status_set = Array[ExtResource("10_krg26")]([SubResource("Resource_7n2e6")])
 effect_set = Array[ExtResource("8_ja88w")]([SubResource("Resource_tnasn")])
 monster_frames = ExtResource("10_bhpsv")
-ability_sequence_set = Array[ExtResource("2_010p2")]([SubResource("Resource_ddbty")])
 max_abilities = 4
+ability_sequence_set = Array[ExtResource("2_010p2")]([SubResource("Resource_ddbty")])
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_61lc6"]
 
@@ -165,5 +168,8 @@ one_shot = true
 
 [node name="AttackChooseManager" type="Node" parent="."]
 script = ExtResource("17_lwaqj")
+
+[node name="ExecuteManager" type="Node" parent="."]
+script = ExtResource("18_loqvp")
 
 [connection signal="timeout" from="StandbyeManager/Timer" to="StandbyeManager" method="_on_timer_timeout"]

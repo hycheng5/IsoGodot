@@ -13,4 +13,4 @@ func _process(delta):
 	pass
 
 func _on_pressed():
-	pass
+	battle_manager.choose_ability_sequence.emit(ability_sequence)
