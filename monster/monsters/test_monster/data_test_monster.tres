@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://abilities/scripts/sequences/ability_sequence.gd" id="1_h8377"]
 [ext_resource type="Script" path="res://abilities/scripts/attacks/data_attack.gd" id="2_hy0j0"]
-[ext_resource type="Script" path="res://abilities/scripts/sequences/ability_basic_attack.gd" id="2_jqetl"]
+[ext_resource type="Script" path="res://abilities/scripts/sequences/basic_attack.gd" id="2_jqetl"]
 [ext_resource type="Script" path="res://abilities/scripts/effects/data_effect.gd" id="3_akwc7"]
 [ext_resource type="Script" path="res://abilities/scripts/attacks/data_low_attack.gd" id="3_amcvb"]
 [ext_resource type="Script" path="res://monster/scripts/data_monster.gd" id="4_5247j"]

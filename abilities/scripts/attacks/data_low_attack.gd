@@ -12,9 +12,9 @@ func _ready():
 func _process(delta):
 	pass
 
-func _apply_damage(self_monster: Monster, opponent_monster: Monster):
-	var damage = ((self_monster.attack * ATTACK_MODIFIER ) + 2) + randi_range(5,20)
-	opponent_monster.apply_damage(floor(damage))
+func _apply_damage(target_monster: Monster, source_monster: Monster):
+	var damage = ((source_monster.attack * ATTACK_MODIFIER ) + 2) + randi_range(5,20)
+	target_monster.apply_damage(floor(damage))
 
 func get_damage_string() -> String:
 	return "LOW" 

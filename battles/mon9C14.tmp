@@ -1,17 +1,14 @@
-[gd_scene load_steps=35 format=3 uid="uid://d31681wcon1o8"]
+[gd_scene load_steps=27 format=3 uid="uid://d31681wcon1o8"]
 
 [ext_resource type="Script" path="res://battles/scripts/battle_manager.gd" id="1_hxuqq"]
 [ext_resource type="Script" path="res://abilities/scripts/sequences/ability_sequence.gd" id="2_010p2"]
 [ext_resource type="Script" path="res://battles/scripts/graphics/battle_gui_controller.gd" id="2_eipcj"]
-[ext_resource type="Script" path="res://abilities/scripts/sequences/opponent_periodic_effect.gd" id="3_37fyj"]
 [ext_resource type="PackedScene" uid="uid://d0nvx3lbi2664" path="res://battles/button_ability.tscn" id="3_vp4dy"]
-[ext_resource type="Script" path="res://abilities/scripts/sequences/basic_attack.gd" id="4_w81qt"]
 [ext_resource type="Script" path="res://abilities/scripts/attacks/data_attack.gd" id="4_yygby"]
 [ext_resource type="Script" path="res://abilities/scripts/attacks/data_low_attack.gd" id="5_vbfkd"]
 [ext_resource type="Script" path="res://abilities/scripts/attacks/data_medium_attack.gd" id="6_0wuu2"]
 [ext_resource type="Script" path="res://abilities/scripts/attacks/data_high_attack.gd" id="7_xlvq5"]
 [ext_resource type="Script" path="res://abilities/scripts/effects/data_effect.gd" id="8_ja88w"]
-[ext_resource type="Script" path="res://abilities/scripts/effects/data_poison.gd" id="8_kj68j"]
 [ext_resource type="Script" path="res://monster/scripts/data_monster.gd" id="9_rsg8g"]
 [ext_resource type="SpriteFrames" uid="uid://pvtnh5do0qgj" path="res://monster/monsters/test_monster/animation_test_monster.tres" id="10_bhpsv"]
 [ext_resource type="Script" path="res://abilities/scripts/statuses/data_status.gd" id="10_krg26"]
@@ -20,15 +17,6 @@
 [ext_resource type="Script" path="res://battles/scripts/phases/standbye_manager.gd" id="16_t31p0"]
 [ext_resource type="Script" path="res://battles/scripts/phases/attack_choose_manager.gd" id="17_lwaqj"]
 [ext_resource type="Script" path="res://battles/scripts/phases/execute_manager.gd" id="18_loqvp"]
-[ext_resource type="Script" path="res://battles/scripts/phases/end_manager.gd" id="21_chtje"]
-
-[sub_resource type="Resource" id="Resource_c7ofo"]
-script = ExtResource("3_37fyj")
-weight = 4
-
-[sub_resource type="Resource" id="Resource_y6ml7"]
-script = ExtResource("4_w81qt")
-weight = 1
 
 [sub_resource type="Resource" id="Resource_lhxvt"]
 script = ExtResource("5_vbfkd")
@@ -42,11 +30,9 @@ weight = 2
 script = ExtResource("7_xlvq5")
 weight = 1
 
-[sub_resource type="Resource" id="Resource_f26iv"]
-script = ExtResource("8_kj68j")
-damage_percent = 4
-duration = 4
-weight = 3
+[sub_resource type="Resource" id="Resource_tnasn"]
+script = ExtResource("8_ja88w")
+weight = 0
 
 [sub_resource type="Resource" id="Resource_7n2e6"]
 script = ExtResource("10_krg26")
@@ -63,18 +49,10 @@ attack = 30
 speed = 30
 attack_set = Array[ExtResource("4_yygby")]([SubResource("Resource_lhxvt"), SubResource("Resource_rf3sv"), SubResource("Resource_ass5t")])
 status_set = Array[ExtResource("10_krg26")]([SubResource("Resource_7n2e6")])
-effect_set = Array[ExtResource("8_ja88w")]([SubResource("Resource_f26iv")])
+effect_set = Array[ExtResource("8_ja88w")]([SubResource("Resource_tnasn")])
 monster_frames = ExtResource("10_bhpsv")
 max_abilities = 4
-ability_sequence_set = Array[ExtResource("2_010p2")]([SubResource("Resource_c7ofo"), SubResource("Resource_y6ml7")])
-
-[sub_resource type="Resource" id="Resource_lltka"]
-script = ExtResource("4_w81qt")
-weight = 4
-
-[sub_resource type="Resource" id="Resource_tnasn"]
-script = ExtResource("8_ja88w")
-weight = 0
+ability_sequence_set = Array[ExtResource("2_010p2")]([])
 
 [sub_resource type="Resource" id="Resource_cjika"]
 resource_local_to_scene = true
@@ -89,7 +67,7 @@ status_set = Array[ExtResource("10_krg26")]([SubResource("Resource_7n2e6")])
 effect_set = Array[ExtResource("8_ja88w")]([SubResource("Resource_tnasn")])
 monster_frames = ExtResource("10_bhpsv")
 max_abilities = 4
-ability_sequence_set = Array[ExtResource("2_010p2")]([SubResource("Resource_lltka")])
+ability_sequence_set = Array[ExtResource("2_010p2")]([])
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_61lc6"]
 
@@ -189,8 +167,5 @@ script = ExtResource("17_lwaqj")
 
 [node name="ExecuteManager" type="Node" parent="."]
 script = ExtResource("18_loqvp")
-
-[node name="EndManager" type="Node" parent="."]
-script = ExtResource("21_chtje")
 
 [connection signal="timeout" from="StandbyeManager/Timer" to="StandbyeManager" method="_on_timer_timeout"]

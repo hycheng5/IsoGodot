@@ -3,24 +3,27 @@ extends Node
 class_name BattleManager
 
 signal change_phase(new_phase : Phases)
+
+# These signals are for scripts that need to distinguish monsters between player and NPC
 signal new_player_monster(new_monster: Monster)
 signal new_opponent_monster(new_monster: Monster)
 signal choose_ability_sequence(ability: AbilitySequence)
 
-enum Phases{STANDBYE, ATTACK_CHOOSE, EXECUTE, END}
+enum Phases{STANDBYE, ATTACK_CHOOSE, EXECUTE, END, NULL}
 
 const phase_order: Array[Phases] = [
 		Phases.STANDBYE,
 		Phases.ATTACK_CHOOSE, 
 		Phases.EXECUTE, 
-		Phases.END
+		Phases.END,
 		]
 
 const phase_names = {
 	Phases.STANDBYE: "Standby",
 	Phases.ATTACK_CHOOSE: "Attack Choose",
 	Phases.EXECUTE: "Execute",
-	Phases.END: "End"
+	Phases.END: "End",
+	Phases.NULL: "NULL"
 }
 
 var current_phase: Phases
@@ -58,6 +61,8 @@ func phase_to_string(phase: Phases) -> String:
 
 func next_phase():
 	phase_index+=1
+	if(phase_index >= phase_order.size()):
+		phase_index = 0
 	change_phase.emit(phase_order[phase_index])
 
 func select_ability_sequence(ability: AbilitySequence):

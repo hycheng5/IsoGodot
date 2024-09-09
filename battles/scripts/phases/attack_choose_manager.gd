@@ -4,6 +4,7 @@ class_name AttackChooseManager
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _ready():
 	super._ready()
+	_self_phase = BattleManager.Phases.ATTACK_CHOOSE
 	battle_manager.choose_ability_sequence.connect(on_choose_ability_sequence)
 
 func on_choose_ability_sequence(ability: AbilitySequence):
@@ -16,3 +17,9 @@ func on_choose_ability_sequence(ability: AbilitySequence):
 	print("player attack is ", battle_manager.player_sequence.ability_description)
 
 	battle_manager.next_phase()
+
+func _execute_phase():
+	pass
+
+func _get_self_phase() -> BattleManager.Phases:
+	return BattleManager.Phases.ATTACK_CHOOSE

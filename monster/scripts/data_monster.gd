@@ -29,7 +29,7 @@ signal monster_damaged(monster: Monster)
 var usable_ability_sequences: Array[AbilitySequence]
 
 # list of statuses that are currently applied to the monster 
-var _applied_statuses: Array[Status]
+var _applied_periodic_effects: Array[PeriodicEffect]
 
 func _init():
 	resource_local_to_scene = true
@@ -48,6 +48,6 @@ func ready():
 		print(ability_sequence.ability_description)
 		print(name)
 		usable_ability_sequences.append(ability_sequence)
-	
+
 	for ability in usable_ability_sequences:
 		print(ability.ability_description)
