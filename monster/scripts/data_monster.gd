@@ -2,7 +2,7 @@ extends Resource
 
 class_name Monster
 
-signal monster_damaged(monster: Monster)
+signal monster_damaged(monster: Monster, damage_ammount: int)
 
 @export var name: String
 
@@ -37,7 +37,9 @@ func _init():
 # Use this function to apply damage don't directly change the health attribute
 func apply_damage(damage: int):
 	health -= damage
-	monster_damaged.emit(self)
+	if(health < 0):
+		health = 0
+	monster_damaged.emit(self, damage)
 
 # Creates a list of usable ability sequences and other initializations
 # NOTE: since this is a resource this must be called manually!

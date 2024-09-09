@@ -34,6 +34,9 @@ var current_phase: Phases
 @export var player_monster: Monster
 @export var opponent_monster: Monster
 
+@export var player_monster_container: MonsterContainer
+@export var opponent_monster_container: MonsterContainer
+
 # chosen ability sequence 
 var player_sequence: AbilitySequence
 var opponent_sequence: AbilitySequence
@@ -53,8 +56,11 @@ func _ready():
 	opponent_monster.ready()
 	
 	new_player_monster.emit(player_monster)
+	player_monster_container.add_monster(player_monster)
+	
 	new_opponent_monster.emit(opponent_monster)
-
+	opponent_monster_container.add_monster(opponent_monster)
+	
 # Function to convert enum to string
 func phase_to_string(phase: Phases) -> String:
 	return phase_names.get(phase, "Unknown Phase")

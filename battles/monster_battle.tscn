@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://d31681wcon1o8"]
+[gd_scene load_steps=37 format=3 uid="uid://d31681wcon1o8"]
 
 [ext_resource type="Script" path="res://battles/scripts/battle_manager.gd" id="1_hxuqq"]
 [ext_resource type="Script" path="res://abilities/scripts/sequences/ability_sequence.gd" id="2_010p2"]
@@ -18,17 +18,19 @@
 [ext_resource type="Script" path="res://battles/scripts/graphics/battle_player_sprite.gd" id="14_pqgrw"]
 [ext_resource type="Script" path="res://battles/scripts/graphics/battle_opponent_sprite.gd" id="15_n0viw"]
 [ext_resource type="Script" path="res://battles/scripts/phases/standbye_manager.gd" id="16_t31p0"]
+[ext_resource type="Script" path="res://battles/scripts/monster_container.gd" id="16_yycwj"]
 [ext_resource type="Script" path="res://battles/scripts/phases/attack_choose_manager.gd" id="17_lwaqj"]
+[ext_resource type="Script" path="res://battles/scripts/graphics/battle_health_bar.gd" id="18_1pkg0"]
 [ext_resource type="Script" path="res://battles/scripts/phases/execute_manager.gd" id="18_loqvp"]
 [ext_resource type="Script" path="res://battles/scripts/phases/end_manager.gd" id="21_chtje"]
 
 [sub_resource type="Resource" id="Resource_c7ofo"]
 script = ExtResource("3_37fyj")
-weight = 4
+weight = 2
 
 [sub_resource type="Resource" id="Resource_y6ml7"]
 script = ExtResource("4_w81qt")
-weight = 1
+weight = 4
 
 [sub_resource type="Resource" id="Resource_lhxvt"]
 script = ExtResource("5_vbfkd")
@@ -58,9 +60,9 @@ resource_local_to_scene = true
 script = ExtResource("9_rsg8g")
 name = "Test Monster"
 health = 30
-max_health = 0
+max_health = 30
 attack = 30
-speed = 30
+speed = 50
 attack_set = Array[ExtResource("4_yygby")]([SubResource("Resource_lhxvt"), SubResource("Resource_rf3sv"), SubResource("Resource_ass5t")])
 status_set = Array[ExtResource("10_krg26")]([SubResource("Resource_7n2e6")])
 effect_set = Array[ExtResource("8_ja88w")]([SubResource("Resource_f26iv")])
@@ -81,7 +83,7 @@ resource_local_to_scene = true
 script = ExtResource("9_rsg8g")
 name = "Opponent Monster"
 health = 30
-max_health = 0
+max_health = 30
 attack = 30
 speed = 4
 attack_set = Array[ExtResource("4_yygby")]([SubResource("Resource_lhxvt"), SubResource("Resource_rf3sv"), SubResource("Resource_ass5t")])
@@ -95,10 +97,12 @@ ability_sequence_set = Array[ExtResource("2_010p2")]([SubResource("Resource_lltk
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wc0xp"]
 
-[node name="BattleRoot" type="Node2D"]
+[node name="BattleRoot" type="Node2D" node_paths=PackedStringArray("player_monster_container", "opponent_monster_container")]
 script = ExtResource("1_hxuqq")
 player_monster = SubResource("Resource_15jv1")
 opponent_monster = SubResource("Resource_cjika")
+player_monster_container = NodePath("PlayerMonsterContainer")
+opponent_monster_container = NodePath("OpponentMonsterContainer")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -162,20 +166,38 @@ theme_override_font_sizes/font_size = 30
 text = "Phase"
 
 [node name="PlayerMonsterContainer" type="Node2D" parent="."]
+script = ExtResource("16_yycwj")
 
-[node name="PlayerMonsterSprite" type="AnimatedSprite2D" parent="PlayerMonsterContainer"]
+[node name="MonsterSprite" type="AnimatedSprite2D" parent="PlayerMonsterContainer"]
 position = Vector2(-252, 98)
 scale = Vector2(0.478, 0.351)
 sprite_frames = SubResource("SpriteFrames_61lc6")
 script = ExtResource("14_pqgrw")
 
-[node name="OpponentMonsterContainer" type="Node2D" parent="."]
+[node name="HealthBar" type="ProgressBar" parent="PlayerMonsterContainer" node_paths=PackedStringArray("monster_container")]
+offset_left = 181.0
+offset_top = 124.0
+offset_right = 434.0
+offset_bottom = 151.0
+script = ExtResource("18_1pkg0")
+monster_container = NodePath("..")
 
-[node name="OpponentMonsterSprite" type="AnimatedSprite2D" parent="OpponentMonsterContainer"]
+[node name="OpponentMonsterContainer" type="Node2D" parent="."]
+script = ExtResource("16_yycwj")
+
+[node name="MonsterSprite" type="AnimatedSprite2D" parent="OpponentMonsterContainer"]
 position = Vector2(275, -134)
 scale = Vector2(0.478, 0.351)
 sprite_frames = SubResource("SpriteFrames_wc0xp")
 script = ExtResource("15_n0viw")
+
+[node name="HealthBar" type="ProgressBar" parent="OpponentMonsterContainer" node_paths=PackedStringArray("monster_container")]
+offset_left = -459.0
+offset_top = -223.0
+offset_right = -206.0
+offset_bottom = -196.0
+script = ExtResource("18_1pkg0")
+monster_container = NodePath("..")
 
 [node name="StandbyeManager" type="Node" parent="." node_paths=PackedStringArray("timer")]
 script = ExtResource("16_t31p0")

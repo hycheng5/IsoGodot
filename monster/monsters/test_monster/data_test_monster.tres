@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Monster" load_steps=17 format=3 uid="uid://dns8a4dbtuoc2"]
+[gd_resource type="Resource" script_class="Monster" load_steps=16 format=3 uid="uid://dns8a4dbtuoc2"]
 
 [ext_resource type="Script" path="res://abilities/scripts/sequences/ability_sequence.gd" id="1_h8377"]
 [ext_resource type="Script" path="res://abilities/scripts/attacks/data_attack.gd" id="2_hy0j0"]
@@ -9,10 +9,10 @@
 [ext_resource type="Script" path="res://abilities/scripts/attacks/data_medium_attack.gd" id="4_mi7v2"]
 [ext_resource type="Script" path="res://abilities/scripts/attacks/data_high_attack.gd" id="5_0jiiq"]
 [ext_resource type="Script" path="res://abilities/scripts/statuses/data_status.gd" id="5_p6s4r"]
-[ext_resource type="SpriteFrames" uid="uid://pvtnh5do0qgj" path="res://monster/monsters/test_monster/animation_test_monster.tres" id="8_8v2fd"]
 
 [sub_resource type="Resource" id="Resource_ddbty"]
 script = ExtResource("2_jqetl")
+weight = 0
 
 [sub_resource type="Resource" id="Resource_lhxvt"]
 script = ExtResource("3_amcvb")
@@ -40,11 +40,11 @@ resource_local_to_scene = true
 script = ExtResource("4_5247j")
 name = "Test Monster"
 health = 30
+max_health = 30
 attack = 30
 speed = 30
 attack_set = Array[ExtResource("2_hy0j0")]([SubResource("Resource_lhxvt"), SubResource("Resource_rf3sv"), SubResource("Resource_ass5t")])
 status_set = Array[ExtResource("5_p6s4r")]([SubResource("Resource_7n2e6")])
 effect_set = Array[ExtResource("3_akwc7")]([SubResource("Resource_tnasn")])
-monster_image = ExtResource("8_8v2fd")
-ability_sequence_set = Array[ExtResource("1_h8377")]([SubResource("Resource_ddbty")])
 max_abilities = 4
+ability_sequence_set = Array[ExtResource("1_h8377")]([SubResource("Resource_ddbty")])
