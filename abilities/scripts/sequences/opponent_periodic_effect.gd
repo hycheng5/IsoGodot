@@ -11,3 +11,6 @@ func _generate_sequence(attacks: Array[Attack], statuses: Array[Status], effects
 	
 func _execute_sequence(battle_manager: BattleManager, self_monster: Monster, opponent_monster: Monster):
 	effect._apply_effect(battle_manager, opponent_monster, self_monster)
+
+func _get_description()->String: 
+	return "Applies %s damage to opposing monster" % effect._get_name()

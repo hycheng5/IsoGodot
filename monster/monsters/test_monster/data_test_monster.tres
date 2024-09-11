@@ -4,10 +4,10 @@
 [ext_resource type="Script" path="res://abilities/scripts/attacks/data_attack.gd" id="2_hy0j0"]
 [ext_resource type="Script" path="res://abilities/scripts/sequences/basic_attack.gd" id="2_jqetl"]
 [ext_resource type="Script" path="res://abilities/scripts/effects/data_effect.gd" id="3_akwc7"]
-[ext_resource type="Script" path="res://abilities/scripts/attacks/data_low_attack.gd" id="3_amcvb"]
+[ext_resource type="Script" path="res://abilities/scripts/attacks/attack_low.gd" id="3_amcvb"]
 [ext_resource type="Script" path="res://monster/scripts/data_monster.gd" id="4_5247j"]
-[ext_resource type="Script" path="res://abilities/scripts/attacks/data_medium_attack.gd" id="4_mi7v2"]
-[ext_resource type="Script" path="res://abilities/scripts/attacks/data_high_attack.gd" id="5_0jiiq"]
+[ext_resource type="Script" path="res://abilities/scripts/attacks/attack_medium.gd" id="4_mi7v2"]
+[ext_resource type="Script" path="res://abilities/scripts/attacks/attack_high.gd" id="5_0jiiq"]
 [ext_resource type="Script" path="res://abilities/scripts/statuses/data_status.gd" id="5_p6s4r"]
 
 [sub_resource type="Resource" id="Resource_ddbty"]

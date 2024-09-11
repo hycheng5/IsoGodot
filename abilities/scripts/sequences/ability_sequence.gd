@@ -20,6 +20,8 @@ func _generate_sequence(attacks: Array[Attack], statuses: Array[Status], effects
 func _execute_sequence(battle_manager: BattleManager, self_monster: Monster, opponent_monster: Monster):
 	pass
 
+func _get_description()-> String:
+	return ""
 # Chooses a random sequence and returns a duplicate to prevent root 
 # resource manupulation
 static func choose_random_sequence(sequence_list: Array) -> AbilitySequence:

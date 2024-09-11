@@ -73,4 +73,8 @@ func next_phase():
 
 func select_ability_sequence(ability: AbilitySequence):
 	choose_ability_sequence.emit(ability)
+
+# Function to end the battle which will delete the node
+func battle_end():
+	self.queue_free()
 	

@@ -21,6 +21,13 @@ func _execute_phase():
 			battle_manager.opponent_monster, 
 			battle_manager.player_monster
 		)
+	
+	# checks if either monster has 0 health if so then the battle will end
+	if(battle_manager.player_monster.health == 0 || 
+	battle_manager.opponent_monster.health == 0):
+		battle_manager.battle_end()
+	
+	# continue to next turn
 	battle_manager.next_phase()
 func _get_self_phase() -> BattleManager.Phases:
 	return BattleManager.Phases.END
