@@ -1,10 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0nvx3lbi2664"]
+[gd_scene load_steps=3 format=3 uid="uid://d0nvx3lbi2664"]
 
+[ext_resource type="Theme" uid="uid://c7il4lthiqnt5" path="res://art/gui/default.tres" id="1_68lli"]
 [ext_resource type="Script" path="res://battles/scripts/graphics/button_ability.gd" id="1_b3bsg"]
 
 [node name="Button1" type="Button"]
+custom_minimum_size = Vector2(300, 50)
+offset_right = 300.0
+offset_bottom = 50.0
+theme = ExtResource("1_68lli")
 theme_override_font_sizes/font_size = 30
 text = "Button"
+text_overrun_behavior = 1
 script = ExtResource("1_b3bsg")
 
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]

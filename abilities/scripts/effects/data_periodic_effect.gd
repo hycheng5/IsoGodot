@@ -13,3 +13,7 @@ func _apply_effect(battle_manager: BattleManager, target_monster: Monster, sourc
 # All effect is applied on the end turn
 func _periodic_effect(battle_manager: BattleManager, self_monster: Monster, opponent_monster: Monster):	
 	duration -= 1
+	
+	# checks if duration is done if so it will remove itself from the effects list	
+	if(duration <= 0):
+		self_monster._applied_periodic_effects.erase(self)

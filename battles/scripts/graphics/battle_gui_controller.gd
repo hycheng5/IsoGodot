@@ -13,7 +13,7 @@ func _ready():
 		#battle_manager.new_opponent_monster.connect(on_new_opponent_monster)
 
 	#find any buttons in button container and add them to button list
-	for child in get_node("Menu/AttackButtonContainer").get_children():
+	for child in get_node("AbilityMenu").get_children():
 		if child is ButtonAbility:
 			button_list.append(child)
 

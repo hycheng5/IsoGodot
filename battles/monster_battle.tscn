@@ -53,7 +53,7 @@ weight = 1
 [sub_resource type="Resource" id="Resource_f26iv"]
 script = ExtResource("8_kj68j")
 damage_percent = 4
-duration = 4
+duration = 1
 weight = 3
 
 [sub_resource type="Resource" id="Resource_8bgpu"]
@@ -127,38 +127,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_eipcj")
 
-[node name="Menu" type="HBoxContainer" parent="UI"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -432.0
-offset_top = 152.0
-offset_right = -196.0
-offset_bottom = 272.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="AttackButtonContainer" type="GridContainer" parent="UI/Menu"]
-layout_mode = 2
-theme_override_constants/h_separation = 20
-theme_override_constants/v_separation = 20
-columns = 2
-
-[node name="Button1" parent="UI/Menu/AttackButtonContainer" instance=ExtResource("3_vp4dy")]
-layout_mode = 2
-
-[node name="Button2" parent="UI/Menu/AttackButtonContainer" instance=ExtResource("3_vp4dy")]
-layout_mode = 2
-
-[node name="Button3" parent="UI/Menu/AttackButtonContainer" instance=ExtResource("3_vp4dy")]
-layout_mode = 2
-
-[node name="Button4" parent="UI/Menu/AttackButtonContainer" instance=ExtResource("3_vp4dy")]
-layout_mode = 2
-
 [node name="PhaseContainer" type="CenterContainer" parent="UI"]
 layout_mode = 1
 anchors_preset = 15
@@ -175,6 +143,59 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Phase"
+
+[node name="PlayerMenu" type="BoxContainer" parent="UI"]
+layout_mode = 0
+offset_left = 165.0
+offset_top = 146.0
+offset_right = 477.0
+offset_bottom = 264.0
+
+[node name="Cycle" type="Button" parent="UI/PlayerMenu"]
+layout_mode = 2
+text = "Cycle"
+
+[node name="Monster" type="Button" parent="UI/PlayerMenu"]
+layout_mode = 2
+text = "Monsters"
+
+[node name="Items" type="Button" parent="UI/PlayerMenu"]
+layout_mode = 2
+text = "Items
+"
+
+[node name="AbilityMenu" type="Control" parent="UI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Ability1" parent="UI/AbilityMenu" instance=ExtResource("3_vp4dy")]
+layout_mode = 2
+offset_left = -554.13
+offset_top = 152.0
+offset_right = -254.13
+offset_bottom = 202.0
+
+[node name="Ability2" parent="UI/AbilityMenu" instance=ExtResource("3_vp4dy")]
+layout_mode = 2
+offset_left = -234.13
+offset_top = 152.0
+offset_right = 65.87
+offset_bottom = 202.0
+
+[node name="Ability3" parent="UI/AbilityMenu" instance=ExtResource("3_vp4dy")]
+layout_mode = 2
+offset_left = -554.13
+offset_top = 222.0
+offset_right = -254.13
+offset_bottom = 272.0
+
+[node name="Ability4" parent="UI/AbilityMenu" instance=ExtResource("3_vp4dy")]
+layout_mode = 2
+offset_left = -234.13
+offset_top = 222.0
+offset_right = 65.87
+offset_bottom = 272.0
 
 [node name="PlayerMonsterContainer" type="Node2D" parent="."]
 script = ExtResource("16_yycwj")
