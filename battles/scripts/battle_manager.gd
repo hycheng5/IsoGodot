@@ -4,6 +4,11 @@ class_name BattleManager
 
 signal change_phase(new_phase : Phases)
 
+# Signal to let nodes know the player selected the cycle state to cycle an ability
+# Cycling counts as a part of the attack phase
+signal enter_cycle()
+signal exit_cycle()
+
 # These signals are for scripts that need to distinguish monsters between player and NPC
 signal new_player_monster(new_monster: Monster)
 signal new_opponent_monster(new_monster: Monster)
@@ -48,7 +53,6 @@ func _init():
 
 func _ready():
 	change_phase.emit(phase_order[phase_index])
-	
 	# initialize monsters to ready state if needed
 	# TODO: we do this because the monsters haven't been instantiated hopefully
 	# later on we can just pass the monsters in the init function
@@ -60,7 +64,7 @@ func _ready():
 	
 	new_opponent_monster.emit(opponent_monster)
 	opponent_monster_container.add_monster(opponent_monster)
-	
+
 # Function to convert enum to string
 func phase_to_string(phase: Phases) -> String:
 	return phase_names.get(phase, "Unknown Phase")
@@ -77,4 +81,3 @@ func select_ability_sequence(ability: AbilitySequence):
 # Function to end the battle which will delete the node
 func battle_end():
 	self.queue_free()
-	

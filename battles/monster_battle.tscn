@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://d31681wcon1o8"]
+[gd_scene load_steps=42 format=3 uid="uid://d31681wcon1o8"]
 
 [ext_resource type="Script" path="res://battles/scripts/battle_manager.gd" id="1_hxuqq"]
 [ext_resource type="Script" path="res://abilities/scripts/sequences/ability_sequence.gd" id="2_010p2"]
@@ -21,6 +21,7 @@
 [ext_resource type="Script" path="res://battles/scripts/graphics/battle_opponent_sprite.gd" id="15_n0viw"]
 [ext_resource type="Script" path="res://battles/scripts/phases/standbye_manager.gd" id="16_t31p0"]
 [ext_resource type="Script" path="res://battles/scripts/monster_container.gd" id="16_yycwj"]
+[ext_resource type="Script" path="res://battles/scripts/graphics/button_cycle.gd" id="17_3xl7b"]
 [ext_resource type="Script" path="res://battles/scripts/phases/attack_choose_manager.gd" id="17_lwaqj"]
 [ext_resource type="Script" path="res://battles/scripts/graphics/battle_health_bar.gd" id="18_1pkg0"]
 [ext_resource type="Script" path="res://battles/scripts/phases/execute_manager.gd" id="18_loqvp"]
@@ -151,9 +152,11 @@ offset_top = 146.0
 offset_right = 477.0
 offset_bottom = 264.0
 
-[node name="Cycle" type="Button" parent="UI/PlayerMenu"]
+[node name="Cycle" type="Button" parent="UI/PlayerMenu" node_paths=PackedStringArray("battle_manager")]
 layout_mode = 2
 text = "Cycle"
+script = ExtResource("17_3xl7b")
+battle_manager = NodePath("../../..")
 
 [node name="Monster" type="Button" parent="UI/PlayerMenu"]
 layout_mode = 2
@@ -169,33 +172,37 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Ability1" parent="UI/AbilityMenu" instance=ExtResource("3_vp4dy")]
+[node name="Ability1" parent="UI/AbilityMenu" node_paths=PackedStringArray("battle_manager") instance=ExtResource("3_vp4dy")]
 layout_mode = 2
 offset_left = -554.13
 offset_top = 152.0
 offset_right = -254.13
 offset_bottom = 202.0
+battle_manager = NodePath("../../..")
 
-[node name="Ability2" parent="UI/AbilityMenu" instance=ExtResource("3_vp4dy")]
+[node name="Ability2" parent="UI/AbilityMenu" node_paths=PackedStringArray("battle_manager") instance=ExtResource("3_vp4dy")]
 layout_mode = 2
 offset_left = -234.13
 offset_top = 152.0
 offset_right = 65.87
 offset_bottom = 202.0
+battle_manager = NodePath("../../..")
 
-[node name="Ability3" parent="UI/AbilityMenu" instance=ExtResource("3_vp4dy")]
+[node name="Ability3" parent="UI/AbilityMenu" node_paths=PackedStringArray("battle_manager") instance=ExtResource("3_vp4dy")]
 layout_mode = 2
 offset_left = -554.13
 offset_top = 222.0
 offset_right = -254.13
 offset_bottom = 272.0
+battle_manager = NodePath("../../..")
 
-[node name="Ability4" parent="UI/AbilityMenu" instance=ExtResource("3_vp4dy")]
+[node name="Ability4" parent="UI/AbilityMenu" node_paths=PackedStringArray("battle_manager") instance=ExtResource("3_vp4dy")]
 layout_mode = 2
 offset_left = -234.13
 offset_top = 222.0
 offset_right = 65.87
 offset_bottom = 272.0
+battle_manager = NodePath("../../..")
 
 [node name="PlayerMonsterContainer" type="Node2D" parent="."]
 script = ExtResource("16_yycwj")

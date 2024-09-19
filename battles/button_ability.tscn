@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0nvx3lbi2664"]
+[gd_scene load_steps=4 format=3 uid="uid://d0nvx3lbi2664"]
 
 [ext_resource type="Theme" uid="uid://c7il4lthiqnt5" path="res://art/gui/default.tres" id="1_68lli"]
 [ext_resource type="Script" path="res://battles/scripts/graphics/button_ability.gd" id="1_b3bsg"]
+[ext_resource type="Theme" uid="uid://bmaa1qa2vmn5w" path="res://art/gui/cycling.tres" id="3_0tgbj"]
 
 [node name="Button1" type="Button"]
 custom_minimum_size = Vector2(300, 50)
@@ -12,6 +13,8 @@ theme_override_font_sizes/font_size = 30
 text = "Button"
 text_overrun_behavior = 1
 script = ExtResource("1_b3bsg")
+select_theme = ExtResource("1_68lli")
+cycle_theme = ExtResource("3_0tgbj")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -34,9 +34,7 @@ func on_phase_change(phase: BattleManager.Phases):
 			
 func on_new_player_monster(new_monster: Monster):
 	for i in range(0,new_monster.usable_ability_sequences.size()):
-		button_list[i].text = new_monster.usable_ability_sequences[i]._get_description()
-		button_list[i].ability_sequence = new_monster.usable_ability_sequences[i]
-		button_list[i].battle_manager = battle_manager
+		button_list[i].set_ability(new_monster.usable_ability_sequences[i])
 
 func on_new_opponent_monster(new_monster: Monster):
 	pass

@@ -45,11 +45,15 @@ func apply_damage(damage: int):
 # NOTE: since this is a resource this must be called manually!
 func ready():
 	for i in range(0,max_abilities):
-		var ability_sequence = AbilitySequence.choose_random_sequence(ability_sequence_set)
-		ability_sequence._generate_sequence(attack_set, status_set, effect_set)
+		var ability_sequence = generate_ability()
 		print(ability_sequence.ability_description)
 		print(name)
 		usable_ability_sequences.append(ability_sequence)
 
 	for ability in usable_ability_sequences:
 		print(ability.ability_description)
+
+func generate_ability() -> AbilitySequence:
+	var ability_sequence = AbilitySequence.choose_random_sequence(ability_sequence_set)
+	ability_sequence._generate_sequence(attack_set, status_set, effect_set)
+	return ability_sequence
