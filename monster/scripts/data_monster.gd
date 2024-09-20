@@ -2,7 +2,7 @@ extends Resource
 
 class_name Monster
 
-signal monster_health_change(monster: Monster, change_ammount: int)
+signal monster_health_change(monster: Monster, new_health: int)
 
 @export var name: String
 
@@ -39,13 +39,13 @@ func apply_damage(damage: int):
 	health -= damage
 	if(health < 0):
 		health = 0
-	monster_health_change.emit(self, -damage)
+	monster_health_change.emit(self, health)
 
 func apply_heal(heal_ammount: int):
 	health += heal_ammount
 	if(health > max_health):
 		health = max_health
-	monster_health_change.emit(self, heal_ammount)
+	monster_health_change.emit(self, health)
 
 		
 # Creates a list of usable ability sequences and other initializations

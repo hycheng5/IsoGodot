@@ -17,7 +17,7 @@ func on_new_monster(monster: Monster):
 	max_value = monster.max_health
 	value = monster.health
 
-func on_monster_damage(monster: Monster, change_ammount: int):
+func on_monster_damage(monster: Monster, new_health: int):
 	max_value = monster.max_health
 	value = monster.health
 	
