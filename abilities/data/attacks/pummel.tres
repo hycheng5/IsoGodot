@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SequenceBasicAttack" load_steps=4 format=3 uid="uid://be0qop8fgtl1h"]
+
+[ext_resource type="Script" path="res://abilities/scripts/sequences/basic_attack.gd" id="1_1y5s7"]
+[ext_resource type="Script" path="res://abilities/scripts/attacks/attack_medium.gd" id="1_ys57i"]
+
+[sub_resource type="Resource" id="Resource_kk88k"]
+script = ExtResource("1_ys57i")
+weight = 0
+
+[resource]
+script = ExtResource("1_1y5s7")
+attack = SubResource("Resource_kk88k")
+weight = 0
+name = "Pummel"
+ability_description = "Deal medium damage to monster"

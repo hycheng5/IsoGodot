@@ -5,9 +5,9 @@ class_name AbilitySequence
 
 # Weight of sequence
 @export var weight: int 
-
+@export var name: String
 # description of ability that will appear to attack
-var ability_description: String = ""
+@export_multiline var ability_description: String = ""
 # this function will be overwritten on init it will get the necessary 
 # abilities 
 func _init():

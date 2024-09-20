@@ -2,7 +2,7 @@ extends AbilitySequence
 
 # This is the basic attack it should do nothing more than do a simple attack
 class_name SequenceBasicAttack
-var attack: Attack
+@export var attack: Attack
 
 func _generate_sequence(attacks: Array[Attack], statuses: Array[Status], effects: Array[Effect]):
 	attack = Ability.choose_random_ability(attacks)

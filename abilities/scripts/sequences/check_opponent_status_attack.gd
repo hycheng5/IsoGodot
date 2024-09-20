@@ -3,8 +3,8 @@ extends AbilitySequence
 # Checks if status is applied to opponent monster if true then execute attack
 class_name CheckOpponentStatusAttack
 
-var status: Status
-var attack: Attack
+@export var status: Status
+@export var attack: Attack
 # This will create a a new sequence
 func _generate_sequence(attacks: Array[Attack], statuses: Array[Status], effects: Array[Effect]):
 	status = Ability.choose_random_ability(statuses)

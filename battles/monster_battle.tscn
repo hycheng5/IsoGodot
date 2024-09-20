@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://d31681wcon1o8"]
+[gd_scene load_steps=44 format=3 uid="uid://d31681wcon1o8"]
 
 [ext_resource type="Script" path="res://battles/scripts/battle_manager.gd" id="1_hxuqq"]
 [ext_resource type="Script" path="res://abilities/scripts/sequences/ability_sequence.gd" id="2_010p2"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://monster/scripts/data_monster.gd" id="9_rsg8g"]
 [ext_resource type="SpriteFrames" uid="uid://pvtnh5do0qgj" path="res://monster/monsters/test_monster/animation_test_monster.tres" id="10_bhpsv"]
 [ext_resource type="Script" path="res://abilities/scripts/statuses/data_status.gd" id="10_krg26"]
+[ext_resource type="Script" path="res://abilities/scripts/effects/data_heal.gd" id="12_5qdmi"]
 [ext_resource type="Script" path="res://abilities/scripts/statuses/status_poisoned.gd" id="14_8kwwo"]
 [ext_resource type="Script" path="res://battles/scripts/graphics/battle_player_sprite.gd" id="14_pqgrw"]
 [ext_resource type="Script" path="res://battles/scripts/graphics/battle_opponent_sprite.gd" id="15_n0viw"]
@@ -30,14 +31,20 @@
 [sub_resource type="Resource" id="Resource_c7ofo"]
 script = ExtResource("3_37fyj")
 weight = 4
+name = ""
+ability_description = ""
 
 [sub_resource type="Resource" id="Resource_y6ml7"]
 script = ExtResource("4_w81qt")
 weight = 1
+name = ""
+ability_description = ""
 
 [sub_resource type="Resource" id="Resource_72k20"]
 script = ExtResource("5_njbpg")
 weight = 4
+name = ""
+ability_description = ""
 
 [sub_resource type="Resource" id="Resource_lhxvt"]
 script = ExtResource("5_vbfkd")
@@ -57,6 +64,11 @@ damage_percent = 4
 duration = 1
 weight = 3
 
+[sub_resource type="Resource" id="Resource_v6nmf"]
+script = ExtResource("12_5qdmi")
+heal_ammount = 50
+weight = 4
+
 [sub_resource type="Resource" id="Resource_8bgpu"]
 script = ExtResource("14_8kwwo")
 name = ""
@@ -68,11 +80,11 @@ script = ExtResource("9_rsg8g")
 name = "Test Monster"
 health = 100
 max_health = 100
-attack = 30
+attack = 5
 speed = 50
 attack_set = Array[ExtResource("4_yygby")]([SubResource("Resource_lhxvt"), SubResource("Resource_rf3sv"), SubResource("Resource_ass5t")])
 status_set = Array[ExtResource("10_krg26")]([SubResource("Resource_8bgpu")])
-effect_set = Array[ExtResource("8_ja88w")]([SubResource("Resource_f26iv")])
+effect_set = Array[ExtResource("8_ja88w")]([SubResource("Resource_f26iv"), SubResource("Resource_v6nmf")])
 monster_frames = ExtResource("10_bhpsv")
 max_abilities = 4
 ability_sequence_set = Array[ExtResource("2_010p2")]([SubResource("Resource_c7ofo"), SubResource("Resource_y6ml7"), SubResource("Resource_72k20")])
@@ -80,6 +92,8 @@ ability_sequence_set = Array[ExtResource("2_010p2")]([SubResource("Resource_c7of
 [sub_resource type="Resource" id="Resource_lltka"]
 script = ExtResource("4_w81qt")
 weight = 4
+name = ""
+ability_description = ""
 
 [sub_resource type="Resource" id="Resource_tnasn"]
 script = ExtResource("8_ja88w")
@@ -96,7 +110,7 @@ script = ExtResource("9_rsg8g")
 name = "Opponent Monster"
 health = 100
 max_health = 100
-attack = 30
+attack = 5
 speed = 4
 attack_set = Array[ExtResource("4_yygby")]([SubResource("Resource_lhxvt"), SubResource("Resource_rf3sv"), SubResource("Resource_ass5t")])
 status_set = Array[ExtResource("10_krg26")]([SubResource("Resource_6urdn")])

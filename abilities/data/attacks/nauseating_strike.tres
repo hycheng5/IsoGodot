@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="CheckOpponentStatusAttack" load_steps=6 format=3 uid="uid://dky6xddv36otg"]
+
+[ext_resource type="Script" path="res://abilities/scripts/sequences/check_opponent_status_attack.gd" id="1_kkpuo"]
+[ext_resource type="Script" path="res://abilities/scripts/attacks/attack_high.gd" id="1_meq2f"]
+[ext_resource type="Script" path="res://abilities/scripts/statuses/status_poisoned.gd" id="3_rxj1o"]
+
+[sub_resource type="Resource" id="Resource_74pen"]
+script = ExtResource("1_meq2f")
+weight = 0
+
+[sub_resource type="Resource" id="Resource_jvcvu"]
+script = ExtResource("3_rxj1o")
+name = ""
+weight = 0
+
+[resource]
+script = ExtResource("1_kkpuo")
+status = SubResource("Resource_jvcvu")
+attack = SubResource("Resource_74pen")
+weight = 0
+name = "Nauseating Strike"
+ability_description = "Is monster is poisoned deal high damage to monster."

@@ -13,11 +13,11 @@ func _process(delta):
 	pass
 
 func on_new_monster(monster: Monster):
-	monster.monster_damaged.connect(on_monster_damage)
+	monster.monster_health_change.connect(on_monster_damage)
 	max_value = monster.max_health
 	value = monster.health
 
-func on_monster_damage(monster: Monster, damage_ammount: int):
+func on_monster_damage(monster: Monster, change_ammount: int):
 	max_value = monster.max_health
 	value = monster.health
 	

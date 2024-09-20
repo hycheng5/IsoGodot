@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SequenceBasicAttack" load_steps=4 format=3 uid="uid://dpn2y3412qso3"]
+
+[ext_resource type="Script" path="res://abilities/scripts/sequences/basic_attack.gd" id="1_0tp3f"]
+[ext_resource type="Script" path="res://abilities/scripts/attacks/attack_high.gd" id="1_8vtjj"]
+
+[sub_resource type="Resource" id="Resource_5f4ab"]
+script = ExtResource("1_8vtjj")
+weight = 0
+
+[resource]
+script = ExtResource("1_0tp3f")
+attack = SubResource("Resource_5f4ab")
+weight = 0
+name = "Hard Strike"
+ability_description = ""
