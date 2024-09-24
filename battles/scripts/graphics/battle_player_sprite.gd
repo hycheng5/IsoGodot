@@ -7,7 +7,6 @@ func _ready():
 	battle_manager.new_player_monster.connect(on_new_player_monster)
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
