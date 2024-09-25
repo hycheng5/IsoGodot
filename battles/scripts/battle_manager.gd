@@ -33,8 +33,6 @@ const phase_names = {
 
 var current_phase: Phases
 
-@export var player_monster_inventory: CharacterMonsterInventory
-@export var opponent_monster_inventory: CharacterMonsterInventory
 
 @export var player_monster: Monster
 @export var opponent_monster: Monster

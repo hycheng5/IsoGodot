@@ -15,13 +15,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if(playerMovement.velocity == Vector2.ZERO):
-		set("parameters/conditions/is_idle", true)
-		set("parameters/conditions/is_walking", false)
-	else:
-		set("parameters/conditions/is_idle", false)
-		set("parameters/conditions/is_walking", true)
-	
+	set("parameters/conditions/is_idle", playerMovement.velocity == Vector2.ZERO)
+	set("parameters/conditions/is_walking", playerMovement.velocity != Vector2.ZERO)
+
 	if(playerMovement.velocity.normalized() != Vector2.ZERO):
 		set("parameters/Idle/blend_position",playerMovement.velocity.normalized())
 		set("parameters/Walking/blend_position",playerMovement.velocity.normalized())
+		

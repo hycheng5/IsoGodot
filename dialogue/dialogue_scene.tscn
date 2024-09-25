@@ -149,9 +149,10 @@ response_template = NodePath("ResponseExample")
 layout_mode = 2
 text = "Response example"
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="DialogueSprite" type="Node2D" parent="Balloon"]
+unique_name_in_owner = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Balloon/DialogueSprite"]
 position = Vector2(564, 168)
 sprite_frames = ExtResource("4_7dlyq")
 

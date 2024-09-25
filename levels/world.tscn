@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=4 uid="uid://bqv0cd2fej7r2"]
 
 [ext_resource type="Texture2D" uid="uid://ui0iaoxikpj0" path="res://art/BaseBlock.png" id="1_70tns"]
-[ext_resource type="PackedScene" uid="uid://wh41kh16bn63" path="res://character/player/base_character.tscn" id="2_14nll"]
+[ext_resource type="PackedScene" uid="uid://do000j6u8pmgj" path="res://character/resources/player_character.tscn" id="2_qi4k8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8a2t4"]
 texture = ExtResource("1_70tns")
@@ -21,6 +21,5 @@ use_parent_material = true
 tile_map_data = PackedByteArray("AAD///7/AAAAAAEAAAD///3/AAAAAAEAAAAAAPz/AAAAAAEAAAAAAPv/AAAAAAEAAAABAPz/AAAAAAEAAAABAP3/AAAAAAEAAAABAP7/AAAAAAEAAAAAAP3/AAAAAAEAAAAAAP7/AAAAAAEAAAD/////AAAAAAEAAAAAAP//AAAAAAEAAAABAAAAAAAAAAEAAAABAP//AAAAAAEAAAAAAAEAAAAAAAEAAAAAAAIAAAAAAAEAAAD//wEAAAAAAAEAAAD//wAAAAAAAAEAAAAAAAAAAAAAAAEAAAD+////AAAAAAEAAAACAP7/AAAAAAEAAAA=")
 tile_set = SubResource("TileSet_3e3gb")
 
-[node name="Player" parent="." instance=ExtResource("2_14nll")]
-position = Vector2(3, 15)
-SPEED = 500
+[node name="PlayerCharacter" parent="." instance=ExtResource("2_qi4k8")]
+position = Vector2(795, -576)
