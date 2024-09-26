@@ -839,18 +839,21 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Character" type="CharacterBody2D"]
+[node name="Character" type="Node2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CharacterMovement" type="CharacterBody2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterMovement"]
 position = Vector2(0, -86.135)
 shape = SubResource("CapsuleShape2D_166lq")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterMovement"]
 libraries = {
 "": SubResource("AnimationLibrary_438hr")
 }
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="CharacterMovement"]
 tree_root = ExtResource("2_v7gv1")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/is_idle = true
@@ -859,7 +862,7 @@ parameters/Idle/blend_position = Vector2(-0.0544218, -0.691489)
 parameters/Walking/blend_position = Vector2(-0.00680274, 0.0744681)
 script = ExtResource("2_tvv74")
 
-[node name="CharacterSprite" type="AnimatedSprite2D" parent="."]
+[node name="CharacterSprite" type="AnimatedSprite2D" parent="CharacterMovement"]
 unique_name_in_owner = true
 position = Vector2(0, -120)
 sprite_frames = SubResource("SpriteFrames_fxqr2")
