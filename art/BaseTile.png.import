@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ui0iaoxikpj0"
-path="res://.godot/imported/BaseBlock.png-d8a2c3698c256acdf68f1feded6a1769.ctex"
+path="res://.godot/imported/BaseTile.png-3f8bb92c57cd7f0cbfe8a44f706701c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/BaseBlock.png"
-dest_files=["res://.godot/imported/BaseBlock.png-d8a2c3698c256acdf68f1feded6a1769.ctex"]
+source_file="res://art/BaseTile.png"
+dest_files=["res://.godot/imported/BaseTile.png-3f8bb92c57cd7f0cbfe8a44f706701c0.ctex"]
 
 [params]
 

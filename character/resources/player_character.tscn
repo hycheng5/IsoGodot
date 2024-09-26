@@ -2,12 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://wh41kh16bn63" path="res://character/resources/base_character.tscn" id="1_3mg4j"]
 [ext_resource type="Script" path="res://character/scripts/click_controller.gd" id="2_c27xu"]
-[ext_resource type="Script" path="res://character/resources/movement_controller.gd" id="2_t86ls"]
+[ext_resource type="Script" path="res://character/scripts/character.gd" id="2_hfkov"]
 
 [node name="PlayerCharacter" instance=ExtResource("1_3mg4j")]
-
-[node name="CharacterMovement" parent="." index="0"]
-script = ExtResource("2_t86ls")
+script = ExtResource("2_hfkov")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterMovement" index="4"]
 position = Vector2(0, -82.89)

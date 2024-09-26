@@ -1,5 +1,6 @@
-[gd_scene load_steps=95 format=3 uid="uid://wh41kh16bn63"]
+[gd_scene load_steps=96 format=3 uid="uid://wh41kh16bn63"]
 
+[ext_resource type="Script" path="res://character/resources/movement_controller.gd" id="1_kfghw"]
 [ext_resource type="Script" path="res://character/scripts/base_animation_tree.gd" id="2_tvv74"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://c8xutk727bqdk" path="res://character/character_animation.tres" id="2_v7gv1"]
 [ext_resource type="Texture2D" uid="uid://byfuyex4td6ci" path="res://art/characters/BaseCharacter/idle/idle_bottom.png" id="2_vu3f6"]
@@ -843,6 +844,7 @@ animations = [{
 
 [node name="CharacterMovement" type="CharacterBody2D" parent="."]
 unique_name_in_owner = true
+script = ExtResource("1_kfghw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterMovement"]
 position = Vector2(0, -86.135)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=4 uid="uid://bqv0cd2fej7r2"]
 
-[ext_resource type="Texture2D" uid="uid://ui0iaoxikpj0" path="res://art/BaseBlock.png" id="1_70tns"]
+[ext_resource type="Texture2D" uid="uid://ui0iaoxikpj0" path="res://art/BaseTile.png" id="1_70tns"]
 [ext_resource type="PackedScene" uid="uid://do000j6u8pmgj" path="res://character/resources/player_character.tscn" id="2_qi4k8"]
 [ext_resource type="PackedScene" uid="uid://bp2nxhpdk105p" path="res://character/resources/npc_character.tscn" id="3_xi6bs"]
 
