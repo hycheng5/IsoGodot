@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://bqv0cd2fej7r2"]
+[gd_scene load_steps=9 format=4 uid="uid://bqv0cd2fej7r2"]
 
 [ext_resource type="Texture2D" uid="uid://ui0iaoxikpj0" path="res://art/BaseTile.png" id="1_70tns"]
 [ext_resource type="PackedScene" uid="uid://do000j6u8pmgj" path="res://character/resources/player_character.tscn" id="2_qi4k8"]
 [ext_resource type="PackedScene" uid="uid://bp2nxhpdk105p" path="res://character/resources/npc_character.tscn" id="3_xi6bs"]
+[ext_resource type="Texture2D" uid="uid://bpyq1tkcctlrt" path="res://art/TestBlock.png" id="4_y3hw7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8a2t4"]
 texture = ExtResource("1_70tns")
@@ -14,16 +15,39 @@ tile_shape = 1
 tile_size = Vector2i(512, 256)
 sources/0 = SubResource("TileSetAtlasSource_8a2t4")
 
-[node name="World" type="Node"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sbxgb"]
+texture = ExtResource("4_y3hw7")
+texture_region_size = Vector2i(512, 256)
+0:0/0 = 0
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -128, -256, 0, 0, 128, 256, 0)
 
-[node name="Layer0" type="TileMapLayer" parent="."]
-y_sort_enabled = true
-use_parent_material = true
-tile_map_data = PackedByteArray("AAD///7/AAAAAAEAAAD///3/AAAAAAEAAAAAAPz/AAAAAAEAAAAAAPv/AAAAAAEAAAABAPz/AAAAAAEAAAABAP3/AAAAAAEAAAABAP7/AAAAAAEAAAAAAP3/AAAAAAEAAAAAAP7/AAAAAAEAAAD/////AAAAAAEAAAAAAP//AAAAAAEAAAABAAAAAAAAAAEAAAABAP//AAAAAAEAAAAAAAEAAAAAAAEAAAAAAAIAAAAAAAEAAAD//wEAAAAAAAEAAAD//wAAAAAAAAEAAAAAAAAAAAAAAAEAAAD+////AAAAAAEAAAACAP7/AAAAAAEAAAA=")
-tile_set = SubResource("TileSet_3e3gb")
+[sub_resource type="TileSet" id="TileSet_alybj"]
+tile_shape = 1
+tile_size = Vector2i(512, 256)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_sbxgb")
+
+[node name="World" type="Node"]
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("2_qi4k8")]
 position = Vector2(-429, -84)
 
 [node name="NpcCharacter" parent="." instance=ExtResource("3_xi6bs")]
 position = Vector2(595, -477)
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Ground" type="TileMapLayer" parent="Node2D"]
+z_index = -1
+y_sort_enabled = true
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD///7/AAAAAAEAAAD///3/AAAAAAEAAAAAAPz/AAAAAAEAAAAAAPv/AAAAAAEAAAABAPz/AAAAAAEAAAABAP3/AAAAAAEAAAABAP7/AAAAAAEAAAAAAP3/AAAAAAEAAAAAAP7/AAAAAAEAAAD/////AAAAAAEAAAAAAP//AAAAAAEAAAABAAAAAAAAAAEAAAABAP//AAAAAAEAAAAAAAEAAAAAAAEAAAAAAAIAAAAAAAEAAAD//wEAAAAAAAEAAAD//wAAAAAAAAEAAAAAAAAAAAAAAAEAAAD+////AAAAAAEAAAACAP7/AAAAAAEAAAA=")
+tile_set = SubResource("TileSet_3e3gb")
+
+[node name="Block" type="TileMapLayer" parent="Node2D"]
+z_index = -1
+y_sort_enabled = true
+use_parent_material = true
+tile_map_data = PackedByteArray("AAAAAAAAAQAAAAEAAAAAAP7/AQAAAAAAAAA=")
+tile_set = SubResource("TileSet_alybj")

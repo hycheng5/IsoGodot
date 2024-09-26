@@ -78,7 +78,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_166lq"]
 radius = 45.0
-height = 174.27
+height = 92.27
 
 [sub_resource type="Animation" id="Animation_g1yur"]
 length = 0.001
@@ -847,7 +847,6 @@ unique_name_in_owner = true
 script = ExtResource("1_kfghw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterMovement"]
-position = Vector2(0, -86.135)
 shape = SubResource("CapsuleShape2D_166lq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterMovement"]
