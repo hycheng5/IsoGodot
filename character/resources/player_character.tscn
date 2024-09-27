@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://do000j6u8pmgj"]
+[gd_scene load_steps=4 format=3 uid="uid://do000j6u8pmgj"]
 
 [ext_resource type="PackedScene" uid="uid://wh41kh16bn63" path="res://character/resources/base_character.tscn" id="1_3mg4j"]
 [ext_resource type="Script" path="res://character/scripts/click_controller.gd" id="2_c27xu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_il64k"]
 
 [node name="PlayerCharacter" instance=ExtResource("1_3mg4j")]
 z_index = 1
@@ -13,6 +15,13 @@ zoom = Vector2(0.5, 0.5)
 
 [node name="ClickController" type="Node2D" parent="." index="5"]
 script = ExtResource("2_c27xu")
+debug = true
+
+[node name="ClickArea2D" type="Area2D" parent="ClickController" index="0"]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickController/ClickArea2D" index="0"]
+shape = SubResource("CircleShape2D_il64k")
 
 [node name="MovementController" parent="." index="6"]
 unique_name_in_owner = true
