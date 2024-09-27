@@ -865,6 +865,6 @@ script = ExtResource("2_tvv74")
 
 [node name="CharacterSprite" type="AnimatedSprite2D" parent="CharacterMovement"]
 unique_name_in_owner = true
-position = Vector2(0, -120)
 sprite_frames = SubResource("SpriteFrames_fxqr2")
 animation = &"walking_bottom"
+offset = Vector2(0, -120)
