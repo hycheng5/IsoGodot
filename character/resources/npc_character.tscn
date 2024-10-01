@@ -1,13 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://bp2nxhpdk105p"]
+[gd_scene load_steps=7 format=3 uid="uid://bp2nxhpdk105p"]
 
 [ext_resource type="PackedScene" uid="uid://wh41kh16bn63" path="res://character/resources/base_character.tscn" id="1_avqc4"]
+[ext_resource type="Script" path="res://character/scripts/npc_character.gd" id="2_6injd"]
 [ext_resource type="Script" path="res://character/scripts/dialogue_trigger.gd" id="3_c4r3h"]
+[ext_resource type="Resource" uid="uid://chflteknue08s" path="res://dialogue/d_test_convo.dialogue" id="3_qd2yt"]
 [ext_resource type="Script" path="res://interaction/interaction_controller.gd" id="3_v4ehy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o245c"]
 radius = 196.163
 
 [node name="NpcCharacter" instance=ExtResource("1_avqc4")]
+script = ExtResource("2_6injd")
+dialogue_resource = ExtResource("3_qd2yt")
 
 [node name="Dialogue" type="Node2D" parent="." index="0" node_paths=PackedStringArray("dialogue_area")]
 unique_name_in_owner = true

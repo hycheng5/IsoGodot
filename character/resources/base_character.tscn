@@ -865,6 +865,6 @@ sprite_frames = SubResource("SpriteFrames_fxqr2")
 animation = &"walking_bottom"
 offset = Vector2(0, -120)
 
-[node name="MovementController" type="Node" parent="." node_paths=PackedStringArray("character_body")]
+[node name="MovementController" type="Node2D" parent="." node_paths=PackedStringArray("character_body")]
 script = ExtResource("1_kfghw")
 character_body = NodePath("..")
