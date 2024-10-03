@@ -22,6 +22,8 @@ func _physics_process(delta):
 		# will mess up the position
 		click_position = owner.get_global_mouse_position() 
 		character_movement.chosen_position = click_position
+		# This will hopefully clear out any previous targets
+		target_interactable = null
 		
 		# check if any of the overlapping nodes have the InteractionController class
 		for overlap_node: Node2D in click_area.get_overlapping_areas():
