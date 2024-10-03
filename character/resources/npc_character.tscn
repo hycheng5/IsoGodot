@@ -6,8 +6,9 @@
 [ext_resource type="Resource" uid="uid://chflteknue08s" path="res://dialogue/d_test_convo.dialogue" id="3_qd2yt"]
 [ext_resource type="Script" path="res://interaction/interaction_controller.gd" id="3_v4ehy"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_o245c"]
-radius = 196.163
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_giw7s"]
+radius = 66.0
+height = 270.0
 
 [node name="NpcCharacter" instance=ExtResource("1_avqc4")]
 script = ExtResource("2_6injd")
@@ -15,15 +16,14 @@ dialogue_resource = ExtResource("3_qd2yt")
 
 [node name="Dialogue" type="Node2D" parent="." index="0" node_paths=PackedStringArray("dialogue_area")]
 unique_name_in_owner = true
-visible = false
 script = ExtResource("3_c4r3h")
 dialogue_area = NodePath("DialogueCollision")
 
 [node name="DialogueCollision" type="Area2D" parent="Dialogue" index="0"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueCollision" index="0"]
-position = Vector2(0, -90)
-shape = SubResource("CircleShape2D_o245c")
+position = Vector2(0, -100)
+shape = SubResource("CapsuleShape2D_giw7s")
 
 [node name="InteractionController" type="Node2D" parent="." index="5"]
 unique_name_in_owner = true
