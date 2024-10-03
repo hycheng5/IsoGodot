@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://bqv0cd2fej7r2"]
+[gd_scene load_steps=10 format=4 uid="uid://bqv0cd2fej7r2"]
 
 [ext_resource type="Texture2D" uid="uid://ui0iaoxikpj0" path="res://art/BaseTile.png" id="1_70tns"]
 [ext_resource type="PackedScene" uid="uid://do000j6u8pmgj" path="res://character/resources/player_character.tscn" id="2_qi4k8"]
@@ -27,7 +27,15 @@ texture_region_size = Vector2i(512, 256)
 tile_shape = 1
 tile_size = Vector2i(512, 256)
 physics_layer_0/collision_layer = 1
+navigation_layer_0/layers = 1
 sources/1 = SubResource("TileSetAtlasSource_sbxgb")
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_fpgrq"]
+vertices = PackedVector2Array(-500.008, 66.1016, -637.453, -5.0625, 526.57, -582.969, -256, -55.8984, 1394.74, -135.563, 235.328, 446.867, 50, 158.898, 50, 97.1016, -138.633, 253.211)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5, 6, 7), PackedInt32Array(5, 8, 6), PackedInt32Array(2, 7, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-748, -6, 527, -639, 1505, -135, 235, 503)])
+source_geometry_mode = 1
+agent_radius = 50.0
 
 [node name="World" type="Node2D"]
 y_sort_enabled = true
@@ -36,21 +44,24 @@ y_sort_enabled = true
 position = Vector2(551.047, -483.504)
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("2_qi4k8")]
-position = Vector2(504, -132)
+position = Vector2(240.903, 293.442)
 
 [node name="Node2D" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="Ground" type="TileMapLayer" parent="Node2D"]
+[node name="Ground" type="TileMapLayer" parent="Node2D" groups=["navigation_polygon_source_geometry_group"]]
 z_index = -5
 y_sort_enabled = true
 use_parent_material = true
 tile_map_data = PackedByteArray("AAD///7/AAAAAAEAAAD///3/AAAAAAEAAAAAAPz/AAAAAAEAAAAAAPv/AAAAAAEAAAABAP3/AAAAAAEAAAAAAP3/AAAAAAEAAAAAAP7/AAAAAAEAAAD/////AAAAAAEAAAAAAP//AAAAAAEAAAABAAAAAAAAAAEAAAABAP//AAAAAAEAAAAAAAEAAAAAAAEAAAAAAAIAAAAAAAEAAAD//wEAAAAAAAEAAAD//wAAAAAAAAEAAAAAAAAAAAAAAAEAAAD+////AAAAAAEAAAACAP7/AAAAAAEAAAABAPz/AAAAAAEAAAABAP7/AAAAAAEAAAA=")
 tile_set = SubResource("TileSet_3e3gb")
 
-[node name="Block" type="TileMapLayer" parent="Node2D"]
+[node name="Block" type="TileMapLayer" parent="Node2D" groups=["navigation_polygon_source_geometry_group"]]
 z_index = 1
 y_sort_enabled = true
 use_parent_material = true
 tile_map_data = PackedByteArray("AAD///7/AQAAAAAAAAD//wAAAQAAAAEAAAA=")
 tile_set = SubResource("TileSet_alybj")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_fpgrq")

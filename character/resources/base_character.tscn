@@ -868,3 +868,7 @@ offset = Vector2(0, -120)
 [node name="MovementController" type="Node2D" parent="." node_paths=PackedStringArray("character_body")]
 script = ExtResource("1_kfghw")
 character_body = NodePath("..")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+unique_name_in_owner = true
+debug_enabled = true

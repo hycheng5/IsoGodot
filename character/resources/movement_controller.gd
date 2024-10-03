@@ -4,6 +4,7 @@ class_name CharacterMovement
 @export var SPEED = 300
 @export var character_body: CharacterBody2D
 @onready var camera: Camera2D = %Camera2D
+@onready var navigation_agent: NavigationAgent2D = %NavigationAgent2D
 var chosen_position: Vector2:
 	get:
 		return chosen_position
@@ -25,7 +26,9 @@ func _ready():
 
 func _physics_process(delta):
 	if character_body.position.distance_to(chosen_position) > 40:
-		target_position = (chosen_position - character_body.position).normalized()
+		navigation_agent.target_position = chosen_position
+
+		target_position = (navigation_agent.get_next_path_position() - character_body.position).normalized()
 		character_body.velocity = target_position * SPEED
 		character_body.move_and_slide()
 	else:
