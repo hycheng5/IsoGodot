@@ -30,7 +30,8 @@ var dialogue_line: DialogueLine:
 
 		# The dialogue has finished so close the balloon
 		if not next_dialogue_line:
-			queue_free()
+			GameManager.unpause_characters.emit()
+			balloon.hide()
 			return
 
 		# If the node isn't ready yet then none of the labels will be ready yet either
@@ -110,6 +111,7 @@ func _notification(what: int) -> void:
 
 ## Start some dialogue
 func start(dialogue_resource: DialogueResource, title: String, extra_game_states: Array = []) -> void:
+	GameManager.pause_characters.emit()
 	temporary_game_states =  [self] + extra_game_states
 	is_waiting_for_input = false
 	resource = dialogue_resource

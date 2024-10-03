@@ -13,6 +13,9 @@ var debug_scene = preload("res://debug/debug_point.tscn")
 # Character we want to interact with
 var target_interactable: InteractionController
 
+func _ready():
+	GameManager.pause_characters.connect(on_pause_characters)
+	GameManager.unpause_characters.connect(on_unpause_characters)
 func _physics_process(delta):
 	check_interactable()
 	# Area position needs to be offset since it's within the character node
@@ -44,6 +47,11 @@ func check_interactable():
 		
 	if(target_interactable != null 
 	and target_interactable.owner.position.distance_to(owner.position) < interaction_radius):
+		character_movement.chosen_position = owner.position
 		target_interactable.interact(self)
 		target_interactable = null
-		character_movement.chosen_position = owner.position
+
+func on_pause_characters():
+	set_physics_process(false)
+func on_unpause_characters():
+	set_physics_process(true)

@@ -16,6 +16,7 @@ var target_position = Vector2()
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
+	GameManager.pause_characters.connect(on_pause_characters)
 	# added this so that the position is just wherever the player is placed if 
 	# this isn't set it'll try to go to 0,0,0
 	target_position = character_body.position
@@ -30,3 +31,6 @@ func _physics_process(delta):
 	else:
 		character_body.velocity = Vector2.ZERO
 	pass
+
+func on_pause_characters():
+	character_body.velocity = Vector2.ZERO
