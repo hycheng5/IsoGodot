@@ -77,13 +77,13 @@ blend_point_2/pos = Vector2(0, 1)
 blend_point_3/node = SubResource("AnimationNodeAnimation_nrmem")
 blend_point_3/pos = Vector2(0, -1)
 blend_point_4/node = SubResource("AnimationNodeAnimation_qsuux")
-blend_point_4/pos = Vector2(0.1, 0.3)
+blend_point_4/pos = Vector2(0.1, 0.5)
 blend_point_5/node = SubResource("AnimationNodeAnimation_dd5mb")
-blend_point_5/pos = Vector2(-0.1, 0.3)
+blend_point_5/pos = Vector2(-0.1, 0.5)
 blend_point_6/node = SubResource("AnimationNodeAnimation_6dxqp")
-blend_point_6/pos = Vector2(0.1, -0.3)
+blend_point_6/pos = Vector2(0.1, -0.5)
 blend_point_7/node = SubResource("AnimationNodeAnimation_n4aa0")
-blend_point_7/pos = Vector2(-0.1, -0.3)
+blend_point_7/pos = Vector2(-0.1, -0.5)
 blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ne4qm"]

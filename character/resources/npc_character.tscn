@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://bp2nxhpdk105p"]
+[gd_scene load_steps=9 format=3 uid="uid://bp2nxhpdk105p"]
 
 [ext_resource type="PackedScene" uid="uid://wh41kh16bn63" path="res://character/resources/base_character.tscn" id="1_avqc4"]
 [ext_resource type="Script" path="res://character/scripts/npc_character.gd" id="2_6injd"]
 [ext_resource type="Script" path="res://character/scripts/dialogue_trigger.gd" id="3_c4r3h"]
 [ext_resource type="Resource" uid="uid://chflteknue08s" path="res://dialogue/d_test_convo.dialogue" id="3_qd2yt"]
 [ext_resource type="Script" path="res://interaction/interaction_controller.gd" id="3_v4ehy"]
+[ext_resource type="AnimationLibrary" uid="uid://d0nkrs60wwrkx" path="res://character/characters/default_character/animation_defualt_character.res" id="5_ydj0r"]
+[ext_resource type="SpriteFrames" uid="uid://ba6qy88h60mt5" path="res://character/characters/default_character/sprites_default_character.tres" id="6_kw2mt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_giw7s"]
 radius = 66.0
@@ -24,6 +26,17 @@ dialogue_area = NodePath("DialogueCollision")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue/DialogueCollision" index="0"]
 position = Vector2(0, -100)
 shape = SubResource("CapsuleShape2D_giw7s")
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": ExtResource("5_ydj0r")
+}
+
+[node name="AnimationTree" parent="." index="3"]
+parameters/Idle/blend_position = Vector2(-0.0868825, -0.329787)
+
+[node name="CharacterSprite" parent="." index="4"]
+sprite_frames = ExtResource("6_kw2mt")
 
 [node name="InteractionController" type="Node2D" parent="." index="5"]
 unique_name_in_owner = true
