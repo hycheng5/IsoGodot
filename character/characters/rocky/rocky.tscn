@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bopb1a8qaaew7"]
+
+[ext_resource type="PackedScene" uid="uid://bp2nxhpdk105p" path="res://character/resources/npc_character.tscn" id="1_dn02s"]
+[ext_resource type="SpriteFrames" uid="uid://ccr7xkltoruhe" path="res://character/characters/rocky/sprites_rocky.tres" id="2_rrkjw"]
+
+[node name="Rocky" instance=ExtResource("1_dn02s")]
+
+[node name="CharacterSprite" parent="." index="4"]
+sprite_frames = ExtResource("2_rrkjw")
