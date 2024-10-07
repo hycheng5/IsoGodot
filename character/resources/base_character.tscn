@@ -855,7 +855,7 @@ tree_root = ExtResource("2_v7gv1")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/is_idle = true
 parameters/conditions/is_walking = false
-parameters/Idle/blend_position = Vector2(-0.0544218, -0.691489)
+parameters/Idle/blend_position = Vector2(0, 1)
 parameters/Walking/blend_position = Vector2(-0.00680274, 0.0744681)
 script = ExtResource("2_tvv74")
 

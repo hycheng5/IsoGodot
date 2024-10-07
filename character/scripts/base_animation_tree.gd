@@ -1,24 +1,28 @@
 extends AnimationTree
 
-var playerMovement : CharacterBody2D
-var parentNode : Node
+var chracter_body : CharacterBody2D
+var character: Character
+var parent_node : Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	active = true
-	parentNode = get_parent()
-	if(parentNode is CharacterBody2D):
-		playerMovement = parentNode
+	parent_node = get_parent()
+	character = owner as Character
+	if(parent_node is CharacterBody2D):
+		chracter_body = parent_node
 	else:
 		#find the first child node from parent that is character body 2d
-		playerMovement = parentNode.find_children("*", "CharacterBody2D")[0]
+		chracter_body = parent_node.find_children("*", "CharacterBody2D")[0]
+
+	# This sets where the character is initially facing when they spawn
+	set("parameters/Idle/blend_position",character.FacingDirectionMap.get(character.initial_rotation))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	set("parameters/conditions/is_idle", playerMovement.velocity == Vector2.ZERO)
-	set("parameters/conditions/is_walking", playerMovement.velocity != Vector2.ZERO)
+	set("parameters/conditions/is_idle", chracter_body.velocity == Vector2.ZERO)
+	set("parameters/conditions/is_walking", chracter_body.velocity != Vector2.ZERO)
 
-	if(playerMovement.velocity.normalized() != Vector2.ZERO):
-		set("parameters/Idle/blend_position",playerMovement.velocity.normalized())
-		set("parameters/Walking/blend_position",playerMovement.velocity.normalized())
-		
+	if(chracter_body.velocity.normalized() != Vector2.ZERO):
+		set("parameters/Idle/blend_position",chracter_body.velocity.normalized())
+		set("parameters/Walking/blend_position",chracter_body.velocity.normalized())

@@ -2,7 +2,10 @@ extends Node
 
 class_name CharacterMovement
 @export var SPEED = 300
+
+# Character body of the character
 @export var character_body: CharacterBody2D
+
 @onready var camera: Camera2D = %Camera2D
 @onready var navigation_agent: NavigationAgent2D = %NavigationAgent2D
 var chosen_position: Vector2:
@@ -15,7 +18,6 @@ var chosen_position: Vector2:
 var target_position = Vector2()
 
 # Called when the node enters the scene tree for the first time.
-
 func _ready():
 	GameManager.pause_characters.connect(on_pause_characters)
 	# added this so that the position is just wherever the player is placed if 

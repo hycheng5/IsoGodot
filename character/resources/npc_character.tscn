@@ -33,7 +33,7 @@ libraries = {
 }
 
 [node name="AnimationTree" parent="." index="3"]
-parameters/Idle/blend_position = Vector2(-0.0868825, -0.329787)
+parameters/Idle/blend_position = Vector2(0.00170362, 0.989362)
 
 [node name="CharacterSprite" parent="." index="4"]
 sprite_frames = ExtResource("6_kw2mt")
