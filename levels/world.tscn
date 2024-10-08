@@ -42,7 +42,7 @@ y_sort_enabled = true
 
 [node name="NpcCharacter" parent="." instance=ExtResource("3_xi6bs")]
 position = Vector2(509.04, -177.117)
-initial_rotation = 4
+initial_rotation = 2
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("2_qi4k8")]
 position = Vector2(240.903, 293.442)

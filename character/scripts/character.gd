@@ -2,6 +2,9 @@ extends Node2D
 
 class_name Character
 
+#signal to set the rotation of the character
+signal set_rotation(rotation: Vector2)
+
 ## Walking speed of character
 @export var walk_speed: int = 300
 
@@ -30,3 +33,6 @@ const FacingDirectionMap = {
 }
 ## Value to set where the character is facing
 @export var initial_rotation: FacingDirection
+
+func _ready():
+	set_rotation.emit(FacingDirectionMap.get(initial_rotation))

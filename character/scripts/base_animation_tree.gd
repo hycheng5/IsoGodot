@@ -14,10 +14,7 @@ func _ready():
 	else:
 		#find the first child node from parent that is character body 2d
 		chracter_body = parent_node.find_children("*", "CharacterBody2D")[0]
-
-	# This sets where the character is initially facing when they spawn
-	set("parameters/Idle/blend_position",character.FacingDirectionMap.get(character.initial_rotation))
-
+	character.set_rotation.connect(_on_player_character_set_rotation)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	set("parameters/conditions/is_idle", chracter_body.velocity == Vector2.ZERO)
@@ -26,3 +23,7 @@ func _process(delta):
 	if(chracter_body.velocity.normalized() != Vector2.ZERO):
 		set("parameters/Idle/blend_position",chracter_body.velocity.normalized())
 		set("parameters/Walking/blend_position",chracter_body.velocity.normalized())
+
+
+func _on_player_character_set_rotation(rotation):
+	set("parameters/Idle/blend_position",rotation)
