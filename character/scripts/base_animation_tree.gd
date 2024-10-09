@@ -16,7 +16,7 @@ func _ready():
 		chracter_body = parent_node.find_children("*", "CharacterBody2D")[0]
 	character.set_rotation.connect(_on_player_character_set_rotation)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	set("parameters/conditions/is_idle", chracter_body.velocity == Vector2.ZERO)
 	set("parameters/conditions/is_walking", chracter_body.velocity != Vector2.ZERO)
 

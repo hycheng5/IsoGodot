@@ -16,7 +16,7 @@ func _ready() -> void:
 	character = owner as Character
 
 
-func _process(delta):
+func _process(_delta):
 	var new_position = get_viewport_rect().size * Vector2(.5,.5)
 	print(new_position)
 	update_materials_with_position(new_position)

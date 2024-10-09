@@ -13,6 +13,6 @@ func _ready():
 	interaction_controller.interacted.connect(on_interact)
 	
 # when interact is called 
-func on_interact(source: Node2D):
+func on_interact(_source: Node2D):
 	DialogueScene.start(dialogue_resource, "start")
 	pass

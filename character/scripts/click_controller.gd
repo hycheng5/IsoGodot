@@ -16,7 +16,7 @@ var target_interactable: InteractionController
 func _ready():
 	GameManager.pause_characters.connect(on_pause_characters)
 	GameManager.unpause_characters.connect(on_unpause_characters)
-func _physics_process(delta):
+func _physics_process(_delta):
 	check_interactable()
 	# Area position needs to be offset since it's within the character node
 	click_area.position = owner.get_global_mouse_position() - global_position

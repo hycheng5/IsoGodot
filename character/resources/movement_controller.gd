@@ -6,7 +6,6 @@ class_name CharacterMovement
 # Character body of the character
 @export var character_body: CharacterBody2D
 
-@onready var camera: Camera2D = %Camera2D
 @onready var navigation_agent: NavigationAgent2D = %NavigationAgent2D
 var chosen_position: Vector2:
 	get:
@@ -26,7 +25,7 @@ func _ready():
 	chosen_position = character_body.position
 	pass
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if character_body.position.distance_to(chosen_position) > 40:
 		navigation_agent.target_position = chosen_position
 
