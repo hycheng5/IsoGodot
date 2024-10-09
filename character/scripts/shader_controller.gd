@@ -18,7 +18,6 @@ func _ready() -> void:
 
 func _process(_delta):
 	var new_position = get_viewport_rect().size * Vector2(.5,.5)
-	print(new_position)
 	update_materials_with_position(new_position)
 
 func update_materials_with_position( pos : Vector2 ) -> void:

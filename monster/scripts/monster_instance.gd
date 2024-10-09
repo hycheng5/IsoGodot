@@ -32,6 +32,4 @@ func generate_ability_sequences():
 			monster_data.attack_set, 
 			monster_data.status_set, 
 			monster_data.effect_set)
-		print(ability_sequence.ability_description)
-		print(name)
 		usable_ability_sequences.append(ability_sequence)

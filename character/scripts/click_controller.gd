@@ -48,7 +48,7 @@ func check_interactable():
 	if(target_interactable != null 
 	and target_interactable.owner.position.distance_to(owner.position) < interaction_radius):
 		character_movement.chosen_position = owner.position
-		target_interactable.interact(self)
+		target_interactable.interact(owner)
 		target_interactable = null
 
 func on_pause_characters():
