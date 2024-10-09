@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=4 uid="uid://bqv0cd2fej7r2"]
+[gd_scene load_steps=11 format=4 uid="uid://bqv0cd2fej7r2"]
 
 [ext_resource type="Texture2D" uid="uid://ui0iaoxikpj0" path="res://art/BaseTile.png" id="1_70tns"]
+[ext_resource type="Material" uid="uid://drad852mb4167" path="res://art/materials/hole_shader.tres" id="1_sjb8r"]
 [ext_resource type="PackedScene" uid="uid://do000j6u8pmgj" path="res://character/resources/player_character.tscn" id="2_qi4k8"]
 [ext_resource type="PackedScene" uid="uid://bp2nxhpdk105p" path="res://character/resources/npc_character.tscn" id="3_xi6bs"]
 [ext_resource type="Texture2D" uid="uid://bpyq1tkcctlrt" path="res://art/TestBlock.png" id="4_y3hw7"]
@@ -19,8 +20,10 @@ sources/0 = SubResource("TileSetAtlasSource_8a2t4")
 texture = ExtResource("4_y3hw7")
 texture_region_size = Vector2i(512, 256)
 0:0/0 = 0
+0:0/0/material = ExtResource("1_sjb8r")
 0:0/0/y_sort_origin = 280
 0:1/0 = 0
+0:1/0/material = ExtResource("1_sjb8r")
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -128, -256, 0, 0, 128, 256, 0)
 
 [sub_resource type="TileSet" id="TileSet_alybj"]
@@ -45,7 +48,7 @@ position = Vector2(509.04, -177.117)
 initial_rotation = 2
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("2_qi4k8")]
-position = Vector2(240.903, 293.442)
+position = Vector2(305.447, 131.571)
 
 [node name="TileMaps" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -57,9 +60,10 @@ use_parent_material = true
 tile_map_data = PackedByteArray("AAD///7/AAAAAAEAAAD///3/AAAAAAEAAAAAAPz/AAAAAAEAAAAAAPv/AAAAAAEAAAABAP3/AAAAAAEAAAAAAP3/AAAAAAEAAAAAAP7/AAAAAAEAAAD/////AAAAAAEAAAAAAP//AAAAAAEAAAABAAAAAAAAAAEAAAABAP//AAAAAAEAAAAAAAEAAAAAAAEAAAAAAAIAAAAAAAEAAAD//wEAAAAAAAEAAAD//wAAAAAAAAEAAAAAAAAAAAAAAAEAAAD+////AAAAAAEAAAACAP7/AAAAAAEAAAABAPz/AAAAAAEAAAABAP7/AAAAAAEAAAA=")
 tile_set = SubResource("TileSet_3e3gb")
 
-[node name="Block" type="TileMapLayer" parent="TileMaps" groups=["navigation_polygon_source_geometry_group"]]
+[node name="Block" type="TileMapLayer" parent="TileMaps" groups=["Transparent", "navigation_polygon_source_geometry_group"]]
 z_index = 1
 y_sort_enabled = true
+material = ExtResource("1_sjb8r")
 use_parent_material = true
 tile_map_data = PackedByteArray("AAD///7/AQAAAAAAAAD//wAAAQAAAAEAAAA=")
 tile_set = SubResource("TileSet_alybj")

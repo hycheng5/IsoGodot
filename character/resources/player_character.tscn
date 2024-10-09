@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://do000j6u8pmgj"]
+[gd_scene load_steps=8 format=3 uid="uid://do000j6u8pmgj"]
 
 [ext_resource type="PackedScene" uid="uid://wh41kh16bn63" path="res://character/resources/base_character.tscn" id="1_3mg4j"]
 [ext_resource type="Script" path="res://character/scripts/player_character.gd" id="2_1hrk0"]
 [ext_resource type="Script" path="res://character/scripts/click_controller.gd" id="2_c27xu"]
 [ext_resource type="AnimationLibrary" uid="uid://d0nkrs60wwrkx" path="res://character/characters/default_character/animation_defualt_character.res" id="3_hpme4"]
 [ext_resource type="SpriteFrames" uid="uid://ba6qy88h60mt5" path="res://character/characters/default_character/sprites_default_character.tres" id="4_nhqov"]
+[ext_resource type="Script" path="res://character/scripts/shader_controller.gd" id="6_dtx4o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_il64k"]
 
@@ -40,3 +41,6 @@ shape = SubResource("CircleShape2D_il64k")
 
 [node name="MovementController" parent="." index="6"]
 unique_name_in_owner = true
+
+[node name="ShaderController" type="Node2D" parent="." index="8"]
+script = ExtResource("6_dtx4o")

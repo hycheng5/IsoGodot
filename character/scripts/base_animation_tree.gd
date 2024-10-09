@@ -24,6 +24,5 @@ func _process(delta):
 		set("parameters/Idle/blend_position",chracter_body.velocity.normalized())
 		set("parameters/Walking/blend_position",chracter_body.velocity.normalized())
 
-
 func _on_player_character_set_rotation(rotation):
 	set("parameters/Idle/blend_position",rotation)

@@ -36,6 +36,7 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 [global_group]
 
 navigation_polygon_source_geometry_group="group for navigation"
+Transparent="Group to make hole transparency"
 
 [input]
 

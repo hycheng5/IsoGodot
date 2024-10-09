@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://drad852mb4167"]
+
+[ext_resource type="Shader" path="res://art/materials/hole_shader.gdshader" id="1_sp4ve"]
+
+[resource]
+shader = ExtResource("1_sp4ve")
+shader_parameter/CircleCentre = Vector2(-21.29, 0)
+shader_parameter/CircleRadius = 100.0
+shader_parameter/CircleBlur = 0.01
