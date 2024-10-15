@@ -17,7 +17,7 @@ void fragment()
 	    float circle_signal = 1.0 - smoothstep( CircleRadius, CircleRadius*(1.0-circle_blur), circle_dist );
 	    // read the base texture color
 	    vec4 tex_color = texture( TEXTURE, UV );
-		
+
 	    // set output color to the read texture value
 	    COLOR = tex_color;
 	    // now modify the alpha by the circle
