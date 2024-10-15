@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://dialogue/dialogue_test.gd" id="1_ciacj"]
 [ext_resource type="PackedScene" uid="uid://73jm5qjy52vq" path="res://dialogue/dialogue_scene.tscn" id="1_dkoyf"]
-[ext_resource type="Resource" uid="uid://chflteknue08s" path="res://dialogue/d_test_convo.dialogue" id="2_xpmr3"]
+[ext_resource type="Resource" uid="uid://chflteknue08s" path="res://dialogue/dialogues/d_test_convo.dialogue" id="2_xpmr3"]
 
 [node name="DialogueTest" type="Node2D" node_paths=PackedStringArray("dialogue_controller")]
 script = ExtResource("1_ciacj")

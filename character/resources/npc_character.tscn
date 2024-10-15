@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://wh41kh16bn63" path="res://character/resources/base_character.tscn" id="1_avqc4"]
 [ext_resource type="Script" path="res://character/scripts/npc_character.gd" id="2_6injd"]
 [ext_resource type="Script" path="res://character/scripts/dialogue_trigger.gd" id="3_c4r3h"]
-[ext_resource type="Resource" uid="uid://chflteknue08s" path="res://dialogue/d_test_convo.dialogue" id="3_qd2yt"]
+[ext_resource type="Resource" uid="uid://chflteknue08s" path="res://dialogue/dialogues/d_test_convo.dialogue" id="3_qd2yt"]
 [ext_resource type="Script" path="res://interaction/interaction_controller.gd" id="3_v4ehy"]
 [ext_resource type="AnimationLibrary" uid="uid://d0nkrs60wwrkx" path="res://character/characters/default_character/animation_defualt_character.res" id="5_ydj0r"]
 [ext_resource type="SpriteFrames" uid="uid://ba6qy88h60mt5" path="res://character/characters/default_character/sprites_default_character.tres" id="6_kw2mt"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://chflteknue08s"
+path="res://.godot/imported/d_test_convo.dialogue-3d03e9b863453c7376bf104f90669faf.tres"
+
+[deps]
+
+source_file="res://dialogue/dialogues/d_test_convo.dialogue"
+dest_files=["res://.godot/imported/d_test_convo.dialogue-3d03e9b863453c7376bf104f90669faf.tres"]
+
+[params]
+
+defaults=true

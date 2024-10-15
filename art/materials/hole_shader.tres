@@ -4,6 +4,8 @@
 
 [resource]
 shader = ExtResource("1_sp4ve")
-shader_parameter/CircleCentre = Vector2(-21.29, 0)
+shader_parameter/CircleCentre = Vector2(0, 0)
 shader_parameter/CircleRadius = 100.0
 shader_parameter/CircleBlur = 0.01
+shader_parameter/z_threshold = 0.0
+shader_parameter/object_z_position = null
